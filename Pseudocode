@@ -1,0 +1,41 @@
+BEGIN
+
+Initialize Arduino pins
+Initialize I2C
+Initialize MPU6050
+
+IF sensor initialization fails
+    Stop motors
+    Report error
+    Halt
+END IF
+
+Initialize angle estimate
+Initialize PID variables
+
+REPEAT:
+    Wait for next control sample
+    Read accelerometer and gyroscope
+
+    Calculate accelerometer angle
+    Calculate elapsed time
+    Update complementary filter
+
+    Calculate angle error
+
+    IF robot has fallen
+        Stop motors
+        Reset integral
+    ELSE
+        Calculate P term
+        Calculate I term
+        Calculate D term
+        Calculate PID output
+        Limit motor command
+        Drive both motors
+    END IF
+
+    Print diagnostic information
+UNTIL power is removed
+
+END
