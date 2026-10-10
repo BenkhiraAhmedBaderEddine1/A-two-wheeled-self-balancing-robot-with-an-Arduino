@@ -1,6 +1,6 @@
 ABSTRACT
 
-The Two-Wheeled Self-Balanced Robot with Arduino is a small mobile robotic system designed to maintain its upright position using real-time feedback control. Unlike a conventional four-wheeled robot, which is naturally stable on a flat surface, a two-wheeled robot is dynamically unstable and must continuously adjust its wheel motion to prevent falling.
+  The Two-Wheeled Self-Balanced Robot with Arduino is a small mobile robotic system designed to maintain its upright position using real-time feedback control. Unlike a conventional four-wheeled robot, which is naturally stable on a flat surface, a two-wheeled robot is dynamically unstable and must continuously adjust its wheel motion to prevent falling.
 The main objective of this project is to design, assemble, program, and test a self-balancing robot using an Arduino-compatible microcontroller, an inertial measurement unit (IMU), two geared DC motors, and a motor driver. The MPU6050 sensor measures acceleration and angular velocity, allowing the system to estimate the inclination of the robot's body. The Arduino processes these measurements and calculates the corrective motor response using a PID controller.
 A complementary filter combines accelerometer and gyroscope measurements to obtain a more useful estimate of the robot's tilt. The PID controller compares the estimated angle with the desired upright angle and generates a control signal. This signal is applied to the motors through an H-bridge driver, moving the wheels forward or backward to restore balance.
 The project demonstrates important engineering concepts, including embedded programming, sensor fusion, feedback control, motor control, mechanical assembly, and experimental system tuning. It also provides a platform for future development, such as wireless control, wheel encoders, obstacle detection, and autonomous navigation.
@@ -8,42 +8,44 @@ The project is educationally valuable because it combines theoretical knowledge 
 Keywords: Self-balancing robot, Arduino, C++, PID controller, MPU6050, gyroscope, accelerometer, DC motor, feedback control, robotics.
 
 TABLE OF CONTENTS
-1. General Introduction
-2. Problem Statement
-3. Project Aim
-4. Project Objectives
-5. Project Scope
-6. Project Motivation and Importance
-7. Background and Related Concepts
-8. General Description of the Robot
-9. Working Principle
-10. System Architecture
-11. Hardware Components
-12. Software Requirements
-13. Mechanical Design and Assembly
-14. Electrical Connections and Wiring
-15. Mathematical Model of the Robot
-16. Sensor Measurement and Angle Estimation
-17. Complementary Filter
-18. PID Control Theory
-19. PID Parameter Tuning
-20. System Algorithm and Flowchart
-21. Complete Arduino C++ Program
-22. Explanation of the Program
-23. Implementation and Calibration Procedure
-24. Testing and Experimental Evaluation
-25. Results and Discussion
-26. Advantages of the Project
-27. Disadvantages and Limitations
-28. Safety Considerations
-29. Common Problems and Troubleshooting
-30. Future Improvements
-31. Applications
-32. Project Cost and Budget Considerations
-33. Project Management and Work Plan
-34. Conclusion
-35. References
-36. Appendices
+
+
+  1. General Introduction
+  2. Problem Statement
+  3. Project Aim
+  4. Project Objectives
+  5. Project Scope
+  6. Project Motivation and Importance
+  7. Background and Related Concepts
+  8. General Description of the Robot
+  9. Working Principle
+  10. System Architecture
+  11. Hardware Components
+  12. Software Requirements
+  13. Mechanical Design and Assembly
+  14. Electrical Connections and Wiring
+  15. Mathematical Model of the Robot
+  16. Sensor Measurement and Angle Estimation
+  17. Complementary Filter
+  18. PID Control Theory
+  19. PID Parameter Tuning
+  20. System Algorithm and Flowchart
+  21. Complete Arduino C++ Program
+  22. Explanation of the Program
+  23. Implementation and Calibration Procedure
+  24. Testing and Experimental Evaluation
+  25. Results and Discussion
+  26. Advantages of the Project
+  27. Disadvantages and Limitations
+  28. Safety Considerations
+  29. Common Problems and Troubleshooting
+  30. Future Improvements
+  31. Applications
+  32. Project Cost and Budget Considerations
+  33. Project Management and Work Plan
+  34. Conclusion
+  35. References
+  36. Appendices
 
 CHAPTER 1: GENERAL INTRODUCTION
 1.1 Introduction
