@@ -109,9 +109,15 @@ The reference implementation includes:
 - Pulse-width modulation (PWM).
 - Basic fallen-robot protection.
 - Serial debugging and calibration.
+
+  
 The basic implementation does not include automatic navigation, obstacle avoidance, or a complete wheel-position controller. These can be added in later versions.
+
+
 1.6 Project Motivation and Importance
-The main motivation is to demonstrate the practical relationship between electronics, programming, mechanics, and control engineering.
+
+
+  The main motivation is to demonstrate the practical relationship between electronics, programming, mechanics, and control engineering.
 The project is important for several reasons.
 First, it introduces students to real-time embedded systems, in which the controller must repeatedly read sensors and update outputs within a limited time.
 Second, it demonstrates closed-loop control. Rather than sending a fixed motor command, the robot continuously measures its condition and adjusts its response.
