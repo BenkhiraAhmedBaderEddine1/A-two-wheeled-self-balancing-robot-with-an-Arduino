@@ -170,7 +170,7 @@ Conceptual diagram: the body tilts by an angle θ while the wheels move to resto
 
 
 
-2.3 Feedback Control
+  2.3 Feedback Control
 
 
    Feedback control means that a system measures its actual state and uses the measurement to determine its next action.
@@ -182,44 +182,62 @@ In this project, the feedback loop operates as follows:
       5. The motor driver applies the correction to the motors.
       6. The wheels move, changing the robot's position and angle.
       7. The sensor measures the new condition, and the process repeats.
+
 This process occurs many times per second.
-2.4 Open-Loop and Closed-Loop Control
-An open-loop controller sends motor commands without measuring whether the robot is balanced. Such a system cannot reliably compensate for unexpected disturbances.
+
+
+   2.4 Open-Loop and Closed-Loop Control
+
+  An open-loop controller sends motor commands without measuring whether the robot is balanced. Such a system cannot reliably compensate for unexpected disturbances.
 A closed-loop controller measures the robot's state and changes its output accordingly.
 The self-balancing robot uses closed-loop control because its motor commands depend on sensor feedback.
-2.5 Role of Real-Time Processing
-Balancing requires a fast response. If the controller waits too long between measurements, the body may tilt too far before the motors react.
+
+  2.5 Role of Real-Time Processing
+
+  Balancing requires a fast response. If the controller waits too long between measurements, the body may tilt too far before the motors react.
 The control loop must therefore have predictable timing, sufficiently low sensor latency, and a suitable sampling frequency.
 The reference program aims for a nominal sampling frequency of 200 Hz, corresponding to a period of approximately 5 milliseconds. Actual timing should be measured and checked during testing.
 
+
 CHAPTER 3: GENERAL DESCRIPTION OF THE ROBOT
-3.1 Project Description
-The Two-Wheeled Self-Balanced Robot with Arduino is a compact mobile robot consisting of a mechanical chassis, two powered wheels, an inertial sensor, a microcontroller, a motor driver, and a battery supply.
+
+  3.1 Project Description
+
+  The Two-Wheeled Self-Balanced Robot with Arduino is a compact mobile robot consisting of a mechanical chassis, two powered wheels, an inertial sensor, a microcontroller, a motor driver, and a battery supply.
 The chassis supports the electronic components and motors. The MPU6050 measures acceleration and angular velocity. The Arduino uses these measurements to estimate the robot's inclination and calculates the corrective motor signal through a PID controller.
 The motor driver converts the controller's low-power electrical signals into the motor current required to drive the wheels.
 When the robot tilts forward, the control system commands the wheels to move in the direction needed to catch the falling body. When it tilts backward, the corrective direction is reversed.
 The robot repeats this process continuously to maintain an approximately upright posture.
-3.2 Description of the Robot in the Photographs
+
+  3.2 Description of the Robot in the Photographs
+
 The supplied photographs show a small two-wheeled robot with:
-- A compact chassis.
-- Two yellow wheels.
-- Geared DC motors.
-- A battery holder.
-- Electronic modules and connecting wires.
-- A controller or control-circuit assembly.
-The photographs also show a workbench with tools and electronic components, suggesting that the robot is being assembled and adjusted.
-The photographs do not establish the exact model of every electronic component. The remaining report therefore distinguishes the proposed reference design from details that must be verified on the actual robot.
-3.3 Main Functional Units
-The robot can be divided into five main functional units.
-1. Mechanical unit: The chassis, wheels, motor brackets, and fasteners support the robot.
-2. Sensing unit: The IMU measures body acceleration and angular velocity.
-3. Processing unit: The Arduino executes the control algorithm.
-4. Actuation unit: The motor driver and DC motors produce the corrective movement.
-5. Power unit: The battery supplies the motors and the electronics through appropriate power connections.
-3.4 Expected Operating Behaviour
-When the robot is tilted slightly from its upright position, the sensor detects the change in orientation. The controller calculates the angle error and generates a motor command.
+   - A compact chassis.
+   - Two yellow wheels.
+   - Geared DC motors.
+   - A battery holder.
+   - Electronic modules and connecting wires.
+   - A controller or control-circuit assembly.
+
+     
+  The photographs also show a workbench with tools and electronic components, suggesting that the robot is being assembled and adjusted.
+The photographs do not establish the exact model of every electronic component. The remaining report therefore distinguishes the proposed reference design from details that must be 
+verified on the actual robot.
+
+   3.3 Main Functional Units
+
+  The robot can be divided into five main functional units.
+     1. Mechanical unit: The chassis, wheels, motor brackets, and fasteners support the robot.
+     2. Sensing unit: The IMU measures body acceleration and angular velocity.
+     3. Processing unit: The Arduino executes the control algorithm.
+     4. Actuation unit: The motor driver and DC motors produce the corrective movement.
+     5. Power unit: The battery supplies the motors and the electronics through appropriate power connections.
+   3.4 Expected Operating Behaviour
+
+  When the robot is tilted slightly from its upright position, the sensor detects the change in orientation. The controller calculates the angle error and generates a motor command.
 If the controller has been correctly configured, the wheels move to oppose the fall. The body should return toward the upright reference.
 A properly tuned robot may balance for a period on a level surface. Its actual balancing duration, stability, and repeatability must be established experimentally.
+
 
 CHAPTER 4: HARDWARE COMPONENTS
 4.1 Arduino Uno
