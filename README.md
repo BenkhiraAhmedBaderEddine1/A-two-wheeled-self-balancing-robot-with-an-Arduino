@@ -260,7 +260,7 @@ CHAPTER 4: HARDWARE COMPONENTS
    4.1 Arduino Uno
 
 
-The Arduino Uno is the main processing unit in the reference design.
+  The Arduino Uno is the main processing unit in the reference design.
 It is based on the ATmega328P microcontroller and provides digital input/output pins, PWM outputs, analog inputs, serial communication, and I²C communication.
 Its responsibilities are to:
     - Communicate with the IMU.
