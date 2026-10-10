@@ -618,10 +618,13 @@ When the robot is stationary or moving slowly enough that linear acceleration is
 For a particular sensor orientation, an angle can be calculated using an `atan2()` expression, for example:
 
 $$
-\theta_{\mathrm{acc}} = \operatorname{atan2}(a_y, a_z)
+\theta_{\mathrm{acc}} = \mathrm{atan2}(a_y, a_z)
 $$
 
-where $a_y$ and $a_z$ are acceleration measurements along the relevant sensor axes.
+where:
+
+- $a_y$ is the acceleration measured along the sensor's Y-axis.
+- $a_z$ is the acceleration measured along the sensor's Z-axis.
 
 This formula is only correct for the specified axis convention. If the sensor is mounted differently, another combination of axes may be required.
 
