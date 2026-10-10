@@ -239,21 +239,29 @@ If the controller has been correctly configured, the wheels move to oppose the f
 A properly tuned robot may balance for a period on a level surface. Its actual balancing duration, stability, and repeatability must be established experimentally.
 
 
+
 CHAPTER 4: HARDWARE COMPONENTS
-4.1 Arduino Uno
+
+  
+   4.1 Arduino Uno
+
+
 The Arduino Uno is the main processing unit in the reference design.
 It is based on the ATmega328P microcontroller and provides digital input/output pins, PWM outputs, analog inputs, serial communication, and I²C communication.
 Its responsibilities are to:
-- Communicate with the IMU.
-- Process the sensor measurements.
-- Estimate the tilt angle.
-- Calculate the PID output.
-- Control the motors.
-- Display debugging information through the Serial Monitor.
-The Arduino Uno is suitable for an educational implementation because it is widely supported and easy to program.
+    - Communicate with the IMU.
+    - Process the sensor measurements.
+    - Estimate the tilt angle.
+    - Calculate the PID output.
+    - Control the motors.
+    - Display debugging information through the Serial Monitor.
+
+   The Arduino Uno is suitable for an educational implementation because it is widely supported and easy to program.
 However, its processing power and memory are limited compared with more advanced controllers. The control loop should be kept efficient.
+
 4.2 MPU6050 Accelerometer and Gyroscope
-The MPU6050 is a six-axis inertial measurement unit containing a three-axis accelerometer and a three-axis gyroscope.
+
+   The MPU6050 is a six-axis inertial measurement unit containing a three-axis accelerometer and a three-axis gyroscope.
 The accelerometer measures acceleration along the X, Y, and Z axes. When the robot is stationary, gravity provides a reference for estimating its inclination.
 The gyroscope measures angular velocity around the three axes. It responds quickly to rotational motion and helps the controller track rapid changes in orientation.
 The two sensors have complementary strengths and weaknesses.
