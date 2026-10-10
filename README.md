@@ -435,6 +435,11 @@ Step 10: Inspect the assembly.
 Before applying power, check all screws, electrical connections, wheel clearances, and component mounting points.
 
 
+8.2 Main Variables
+The following variables are useful for understanding the system:
+
+
+
    6.3 Mechanical Considerations
  
    The robot's behaviour depends on more than its code.
@@ -494,3 +499,16 @@ The two-wheeled robot can be approximated as an inverted pendulum mounted on a m
 A complete dynamic model would include the mass and inertia of the body, wheel radius, motor torque, gear ratio, friction, and electrical characteristics. The reference program does not calculate all these quantities explicitly; it uses measured feedback to control the angle.
 8.2 Main Variables
 The following variables are useful for understanding the system:
+
+| Symbol | Description | Unit |
+|---|---|---|
+| \(\theta\) | Robot tilt angle | Radians or degrees |
+| \(\theta_{\mathrm{ref}}\) | Desired upright angle | Radians or degrees |
+| \(e\) | Angle error | Radians or degrees |
+| \(\omega\) | Angular velocity | Radians/second (rad/s) |
+| \(x\) | Wheel axle position | Metres (m) |
+| \(v\) | Wheel axle velocity | Metres/second (m/s) |
+| \(u\) | Controller output | PWM command or normalized control |
+| \(K_p\) | Proportional gain | Depends on controller scaling |
+| \(K_i\) | Integral gain | Depends on controller scaling and time |
+| \(K_d\) | Derivative gain | Depends on controller scaling and time |
