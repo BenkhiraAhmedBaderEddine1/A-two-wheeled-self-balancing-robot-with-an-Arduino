@@ -3,11 +3,23 @@
 >⩊<  TWO-WHEELED SELF-BALANCED ROBOT WITH ARDUINO      >⩊<  
 
 ・・・・
+
+
 ・・・・・・・・・・
+
+
 ・・・・・・・・・・・・・・・
+
+
 ・・・・・・・・・・・・・・・・・・・・
+
+
 ・・・・・・・・・・・・・・・・・・・・・・・・・
+
+
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+
+
 
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/354edce1c81626b03f01c1e5464b5f6d2d65f731/photo_2026-10-10_20-07-09.jpg)
 
@@ -534,3 +546,116 @@ The following variables are useful for understanding the system:
 | \(K_p\) | Proportional gain | Depends on controller scaling |
 | \(K_i\) | Integral gain | Depends on controller scaling and time |
 | \(K_d\) | Derivative gain | Depends on controller scaling and time |
+
+
+
+## 8.3 Angle Error
+
+The angle error is calculated as:
+
+$$
+e(t) = \theta_{\mathrm{ref}} - \theta(t)
+$$
+
+where:
+
+- $\theta_{\mathrm{ref}}$ is the target angle.
+- $\theta(t)$ is the estimated actual angle.
+
+The reference is often close to zero degrees when the robot is upright, but the correct value depends on sensor mounting and mechanical alignment.
+
+If the sensor's zero angle does not correspond to the desired upright posture, the target angle must be calibrated.
+
+## 8.4 Why the Wheels Must Move
+
+Consider a robot leaning forward.
+
+If the wheels remain stationary, gravity continues to rotate the body forward. By moving the wheels forward, the robot changes the location of the pivot relative to the body, helping bring the support point underneath the centre of mass.
+
+The same principle applies in the backward direction.
+
+The control system must therefore respond to the robot's body angle and angular velocity, not merely to whether the motors are rotating.
+
+## 8.5 Control Signal
+
+The PID algorithm generates a control output from the angle error:
+
+$$
+u(t) = K_p e(t) + K_i \int_0^t e(\tau)\,d\tau + K_d \frac{de(t)}{dt}
+$$
+
+The output is limited to a range appropriate for the motor driver.
+
+In the reference implementation, the command is converted to a signed PWM value. Positive and negative values represent opposite motor directions.
+
+The correct sign depends on the sensor coordinate system and motor wiring.
+
+## 8.6 Limitations of the Simplified Model
+
+The equations above describe the controller's error and output, not a complete physical model of the robot.
+
+Actual motion depends on:
+
+- Body mass and centre of mass.
+- Wheel radius and inertia.
+- Motor torque and gear ratio.
+- Motor-driver voltage drop.
+- Battery voltage.
+- Friction and wheel traction.
+- Sensor noise and bias.
+- Control-loop timing.
+
+These factors explain why PID values from one robot cannot automatically be copied to another robot.
+
+# CHAPTER 9: SENSOR MEASUREMENT AND ANGLE ESTIMATION
+
+## 9.1 Accelerometer-Based Angle
+
+An accelerometer measures acceleration along three axes.
+
+When the robot is stationary or moving slowly enough that linear acceleration is small, the gravity vector can be used to estimate its inclination.
+
+For a particular sensor orientation, an angle can be calculated using an `atan2()` expression, for example:
+
+$$
+\theta_{\mathrm{acc}} = \operatorname{atan2}(a_y, a_z)
+$$
+
+where $a_y$ and $a_z$ are acceleration measurements along the relevant sensor axes.
+
+This formula is only correct for the specified axis convention. If the sensor is mounted differently, another combination of axes may be required.
+
+## 9.2 Gyroscope-Based Angle
+
+The gyroscope measures angular velocity.
+
+If the measured angular rate is $\omega$, a simple discrete-time angle update is:
+
+$$
+\theta_k = \theta_{k-1} + \omega_k \Delta t
+$$
+
+where $\Delta t$ is the time elapsed between measurements.
+
+This estimate responds quickly to rotation, but small measurement errors accumulate over time.
+
+## 9.3 Why Both Sensors Are Needed
+
+The accelerometer provides a long-term reference based on gravity but may be disturbed by linear acceleration.
+
+The gyroscope responds rapidly to rotation but accumulates drift when its measurements are integrated.
+
+Combining the two measurements gives a more useful estimate for balancing.
+
+## 9.4 Sensor Calibration
+
+Before balancing tests, confirm:
+
+1. The sensor is firmly attached.
+2. The robot's forward direction corresponds to the intended sensor axis.
+3. The angle changes in the correct direction when the robot is tilted.
+4. The gyroscope rate has the correct sign.
+5. The upright target angle has been calibrated.
+6. The readings are not dominated by vibration or loose connections.
+
+Incorrect axis selection is one of the most important causes of failed self-balancing attempts.
