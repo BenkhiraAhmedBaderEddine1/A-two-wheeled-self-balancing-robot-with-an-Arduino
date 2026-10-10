@@ -395,35 +395,48 @@ The recommended process is:
 10. Record the final test results.
 
 CHAPTER 6: MECHANICAL DESIGN AND ASSEMBLY
-6.1 Mechanical Design Requirements
+
+   6.1 Mechanical Design Requirements
 The mechanical structure should be rigid, compact, and symmetrical where possible.
 The two wheels must be aligned on a common axle, and the motors should be mounted securely.
 The robot's centre of mass affects its response to disturbances. A high centre of mass generally changes the system's dynamics and may make it more difficult to control.
 The exact ideal arrangement depends on the motor torque, wheel size, body mass, and controller performance.
 
-6.2 Assembly Procedure
+   6.2 Assembly Procedure
 
 Step 1: Prepare the chassis.
 Inspect the chassis for cracks, loose fasteners, and parts that may obstruct the wheels.
+
 Step 2: Mount the motors.
 Attach the left and right geared motors using suitable brackets or fasteners.
+
 Step 3: Install the wheels.
 Fit the wheels securely and confirm that they rotate freely without rubbing against the chassis.
+
 Step 4: Install the battery holder.
 Secure the battery holder so the battery cannot shift during movement.
+
 Step 5: Mount the Arduino.
 Attach the controller to the chassis using suitable mounting points. Protect the board from accidental contact with conductive surfaces.
+
 Step 6: Mount the IMU.
 Attach the MPU6050 firmly. Record which sensor axis corresponds to forward/backward rotation.
+
 Step 7: Mount the motor driver.
 Place the driver where it has adequate space for wiring and heat dissipation.
+
 Step 8: Route the wires.
 Keep all wires clear of the wheels, gears, and other moving components.
+
 Step 9: Check the centre of mass.
 Inspect the assembled robot and confirm that the battery and other components cannot move unexpectedly.
+
 Step 10: Inspect the assembly.
 Before applying power, check all screws, electrical connections, wheel clearances, and component mounting points.
-6.3 Mechanical Considerations
-The robot's behaviour depends on more than its code.
+
+
+   6.3 Mechanical Considerations
+ 
+   The robot's behaviour depends on more than its code.
 For example, a loose sensor can produce inconsistent measurements. A flexible chassis can introduce vibration. Unequal wheels can cause the robot to drift. Excessively heavy components can exceed the motor's available torque.
 Mechanical improvements should therefore be considered part of the control-system development.
