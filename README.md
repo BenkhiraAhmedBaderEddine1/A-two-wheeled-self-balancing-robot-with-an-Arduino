@@ -306,51 +306,65 @@ Important motor characteristics include:
 - Mechanical friction.
 - Differences between the left and right motors.
 The motor driver's current rating must be suitable for the motor stall current. A motor that draws excessive current can overheat the driver or cause the Arduino to reset.
+
 4.4 Wheels
-The wheels convert motor rotation into movement of the robot.
+
+  The wheels convert motor rotation into movement of the robot.
 The wheel diameter affects the distance travelled for a given motor rotation and influences the dynamics of the system.
 Both wheels should have similar diameters, grip, and alignment.
 Loose wheels, unequal tyres, or a bent axle can make balancing significantly more difficult.
+
 4.5 L298N Motor Driver
-The L298N is a dual H-bridge motor driver capable of controlling the direction of two brushed DC motors.
+    
+  The L298N is a dual H-bridge motor driver capable of controlling the direction of two brushed DC motors.
 The Arduino cannot directly supply the current required by most geared DC motors. The driver provides the necessary motor-current switching.
 The L298N receives:
-- Direction signals from Arduino digital outputs.
-- PWM signals for controlling effective motor power.
-- Power from a suitable motor supply.
+     - Direction signals from Arduino digital outputs.
+     - PWM signals for controlling effective motor power.
+     - Power from a suitable motor supply.
+
 The module must be wired according to its actual terminal labels and board design.
 An important limitation is that the L298N has a relatively high voltage drop and can dissipate considerable heat. A modern MOSFET-based driver may be a better choice when motor current and efficiency are important.
 4.6 Battery and Power Supply
+
 The battery provides energy for the motors and electronics.
 The supply voltage must be appropriate for the motor ratings and driver requirements.
-A battery that cannot provide sufficient current may experience voltage sag during acceleration. This can cause inconsistent motor performance, controller resets, or failed balancing attempts.
+A battery that cannot provide sufficient current may experience voltage sag during acceleration. This can cause inconsistent motor performance, controller resets, or failed balancing 
+attempts.
+
 The power system should include:
-- A suitable battery pack.
-- Correct polarity.
-- Secure electrical connections.
-- A power switch.
-- A fuse or other suitable overcurrent protection.
-- A regulated logic supply where required by the selected hardware.
+    - A suitable battery pack.
+    - Correct polarity.
+    - Secure electrical connections.
+    - A power switch.
+    - A fuse or other suitable overcurrent protection.
+    - A regulated logic supply where required by the selected hardware.
 The motors should not be powered directly from the Arduino's 5 V pin.
+
 4.7 Chassis and Mounting Hardware
-The chassis supports the motors, wheels, battery, controller, and sensor.
+
+  The chassis supports the motors, wheels, battery, controller, and sensor.
 It must be sufficiently rigid to prevent excessive vibration and movement of the sensor.
 The MPU6050 should be firmly attached to the chassis, and its axis orientation should be documented.
 The battery should also be secured because a moving battery changes the centre of mass and may cause unstable behaviour.
+
 4.8 Connecting Wires and Connectors
-Jumper wires and suitable connectors provide electrical connections between the controller, IMU, motor driver, motors, and power supply.
+
+   Jumper wires and suitable connectors provide electrical connections between the controller, IMU, motor driver, motors, and power supply.
 Loose connections can create intermittent sensor readings or sudden motor interruptions.
 Motor wiring should be kept away from the sensor wiring where practical, and all connections should be checked before power is applied.
+
 4.9 Optional Components
-The basic robot can be improved with the following components:
-- Wheel encoders for measuring wheel rotation.
-- A Bluetooth module for wireless commands.
-- A Wi-Fi-enabled controller for telemetry.
-- A battery-voltage monitoring circuit.
-- An emergency-stop switch.
-- A buzzer or status LEDs.
-- A distance sensor for obstacle detection.
-- A current sensor for monitoring motor load.
+
+  The basic robot can be improved with the following components:
+      - Wheel encoders for measuring wheel rotation.
+      - A Bluetooth module for wireless commands.
+      - A Wi-Fi-enabled controller for telemetry.
+      - A battery-voltage monitoring circuit.
+      - An emergency-stop switch.
+      - A buzzer or status LEDs.
+      - A distance sensor for obstacle detection.
+      - A current sensor for monitoring motor load.
 These components are not required for the reference program but can improve the robot's functionality.
 
 CHAPTER 5: SOFTWARE REQUIREMENTS
