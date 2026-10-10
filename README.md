@@ -287,3 +287,129 @@ The two sensors have complementary strengths and weaknesses.
 | Accelerometer | Provides a gravity-based inclination reference        | Sensitive to vibration and linear acceleration           |
 | Gyroscope     | Responds quickly to rotational movement               | Integrated measurements drift because of bias            |
 | Combined IMU  | Provides information for a more useful angle estimate | Requires correct orientation, filtering, and calibration |
+
+
+
+The MPU6050 communicates with the Arduino through the I²C interface.
+For a typical Arduino Uno connection, SDA is connected to A4 and SCL to A5.
+The actual sensor breakout board's supply requirements must be checked before applying power.
+4.3 DC Geared Motors
+Two geared DC motors drive the wheels.
+A gear reduction system increases the available output torque and reduces the rotational speed, which is useful for a balancing robot.
+The motors should have enough torque to accelerate the wheels and correct the body's inclination.
+Important motor characteristics include:
+- Rated voltage.
+- No-load speed.
+- Stall current.
+- Gear ratio.
+- Available torque.
+- Mechanical friction.
+- Differences between the left and right motors.
+The motor driver's current rating must be suitable for the motor stall current. A motor that draws excessive current can overheat the driver or cause the Arduino to reset.
+4.4 Wheels
+The wheels convert motor rotation into movement of the robot.
+The wheel diameter affects the distance travelled for a given motor rotation and influences the dynamics of the system.
+Both wheels should have similar diameters, grip, and alignment.
+Loose wheels, unequal tyres, or a bent axle can make balancing significantly more difficult.
+4.5 L298N Motor Driver
+The L298N is a dual H-bridge motor driver capable of controlling the direction of two brushed DC motors.
+The Arduino cannot directly supply the current required by most geared DC motors. The driver provides the necessary motor-current switching.
+The L298N receives:
+- Direction signals from Arduino digital outputs.
+- PWM signals for controlling effective motor power.
+- Power from a suitable motor supply.
+The module must be wired according to its actual terminal labels and board design.
+An important limitation is that the L298N has a relatively high voltage drop and can dissipate considerable heat. A modern MOSFET-based driver may be a better choice when motor current and efficiency are important.
+4.6 Battery and Power Supply
+The battery provides energy for the motors and electronics.
+The supply voltage must be appropriate for the motor ratings and driver requirements.
+A battery that cannot provide sufficient current may experience voltage sag during acceleration. This can cause inconsistent motor performance, controller resets, or failed balancing attempts.
+The power system should include:
+- A suitable battery pack.
+- Correct polarity.
+- Secure electrical connections.
+- A power switch.
+- A fuse or other suitable overcurrent protection.
+- A regulated logic supply where required by the selected hardware.
+The motors should not be powered directly from the Arduino's 5 V pin.
+4.7 Chassis and Mounting Hardware
+The chassis supports the motors, wheels, battery, controller, and sensor.
+It must be sufficiently rigid to prevent excessive vibration and movement of the sensor.
+The MPU6050 should be firmly attached to the chassis, and its axis orientation should be documented.
+The battery should also be secured because a moving battery changes the centre of mass and may cause unstable behaviour.
+4.8 Connecting Wires and Connectors
+Jumper wires and suitable connectors provide electrical connections between the controller, IMU, motor driver, motors, and power supply.
+Loose connections can create intermittent sensor readings or sudden motor interruptions.
+Motor wiring should be kept away from the sensor wiring where practical, and all connections should be checked before power is applied.
+4.9 Optional Components
+The basic robot can be improved with the following components:
+- Wheel encoders for measuring wheel rotation.
+- A Bluetooth module for wireless commands.
+- A Wi-Fi-enabled controller for telemetry.
+- A battery-voltage monitoring circuit.
+- An emergency-stop switch.
+- A buzzer or status LEDs.
+- A distance sensor for obstacle detection.
+- A current sensor for monitoring motor load.
+These components are not required for the reference program but can improve the robot's functionality.
+
+CHAPTER 5: SOFTWARE REQUIREMENTS
+5.1 Arduino IDE
+The Arduino IDE is used to write, compile, and upload the C++ program to the microcontroller.
+It also provides a Serial Monitor for displaying sensor values, controller output, and debugging messages.
+5.2 Programming Language
+The project uses C++ with the Arduino framework.
+The program is divided into functions for initialization, sensor reading, angle estimation, PID calculation, motor control, and diagnostics.
+This structure makes the program easier to understand and modify.
+5.3 Required Libraries
+For the reference implementation, install the following libraries through the Arduino IDE Library Manager:
+1. Adafruit MPU6050
+2. Adafruit Unified Sensor
+3. Adafruit BusIO, if not installed automatically as a dependency.
+The program also uses the built-in Wire library for I²C communication.
+5.4 Software Development Process
+The recommended process is:
+1. Install the Arduino IDE.
+2. Install the required sensor libraries.
+3. Connect the Arduino to the computer using USB.
+4. Select the correct board and serial port.
+5. Upload a sensor-reading test.
+6. Verify the sensor axes and angle calculations.
+7. Test the motor directions with the wheels lifted.
+8. Upload the balancing program.
+9. Adjust the PID parameters.
+10. Record the final test results.
+
+CHAPTER 6: MECHANICAL DESIGN AND ASSEMBLY
+6.1 Mechanical Design Requirements
+The mechanical structure should be rigid, compact, and symmetrical where possible.
+The two wheels must be aligned on a common axle, and the motors should be mounted securely.
+The robot's centre of mass affects its response to disturbances. A high centre of mass generally changes the system's dynamics and may make it more difficult to control.
+The exact ideal arrangement depends on the motor torque, wheel size, body mass, and controller performance.
+
+6.2 Assembly Procedure
+
+Step 1: Prepare the chassis.
+Inspect the chassis for cracks, loose fasteners, and parts that may obstruct the wheels.
+Step 2: Mount the motors.
+Attach the left and right geared motors using suitable brackets or fasteners.
+Step 3: Install the wheels.
+Fit the wheels securely and confirm that they rotate freely without rubbing against the chassis.
+Step 4: Install the battery holder.
+Secure the battery holder so the battery cannot shift during movement.
+Step 5: Mount the Arduino.
+Attach the controller to the chassis using suitable mounting points. Protect the board from accidental contact with conductive surfaces.
+Step 6: Mount the IMU.
+Attach the MPU6050 firmly. Record which sensor axis corresponds to forward/backward rotation.
+Step 7: Mount the motor driver.
+Place the driver where it has adequate space for wiring and heat dissipation.
+Step 8: Route the wires.
+Keep all wires clear of the wheels, gears, and other moving components.
+Step 9: Check the centre of mass.
+Inspect the assembled robot and confirm that the battery and other components cannot move unexpectedly.
+Step 10: Inspect the assembly.
+Before applying power, check all screws, electrical connections, wheel clearances, and component mounting points.
+6.3 Mechanical Considerations
+The robot's behaviour depends on more than its code.
+For example, a loose sensor can produce inconsistent measurements. A flexible chassis can introduce vibration. Unequal wheels can cause the robot to drift. Excessively heavy components can exceed the motor's available torque.
+Mechanical improvements should therefore be considered part of the control-system development.
