@@ -455,3 +455,19 @@ For a typical Arduino Uno reference setup:
 | GND | GND |
 | SDA | A4 |
 | SCL | A5 |
+
+
+The MPU6050's I²C address and voltage requirements depend on the particular module configuration.
+7.2 L298N Connections
+The following table defines the pin assignments used in the reference code.
+
+| Arduino Pin | L298N Connection | Function |
+|---|---|---|
+| D5 | ENA | Left motor PWM speed control |
+| D7 | IN1 | Left motor direction control |
+| D8 | IN2 | Left motor direction control |
+| D6 | ENB | Right motor PWM speed control |
+| D9 | IN3 | Right motor direction control |
+| D10 | IN4 | Right motor direction control |
+| GND | GND | Common ground |
+| Suitable external motor supply | Motor power terminal (+12V / VS, as supported by the module) | Supplies motor power |
