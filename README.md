@@ -83,21 +83,29 @@ This problem includes several technical challenges:
 - Preventing unstable motor commands when the robot falls.
 - Achieving reliable operation with limited computing resources.
 The project addresses these challenges through sensor fusion, PID control, and systematic experimental calibration.
+
+
 1.3 Project Aim
-The primary aim is to design, construct, program, and evaluate a two-wheeled self-balancing robot using Arduino and a PID-based feedback control system.
+
+
+  The primary aim is to design, construct, program, and evaluate a two-wheeled self-balancing robot using Arduino and a PID-based feedback control system.
+
+
 1.4 Project Objectives
-The specific objectives are:
-1. Design a compact two-wheeled robotic platform.
-2. Assemble the chassis, motors, wheels, battery, and electronic components.
-3. Connect an MPU6050 sensor to the microcontroller using I²C communication.
-4. Read accelerometer and gyroscope data in real time.
-5. Estimate the robot's tilt angle using a complementary filter.
-6. Implement a PID controller in C++.
-7. Control motor direction and power using a dual H-bridge driver.
-8. Determine the correct sensor axes and motor polarity.
-9. Tune the controller to reduce the robot's inclination and oscillation.
-10. Evaluate the robot using repeatable experimental tests.
-11. Identify the system's limitations and propose future improvements.
+
+
+  The specific objectives are:
+    1. Design a compact two-wheeled robotic platform.
+    2. Assemble the chassis, motors, wheels, battery, and electronic components. 
+    3. Connect an MPU6050 sensor to the microcontroller using I²C communication.
+    4. Read accelerometer and gyroscope data in real time.
+    5. Estimate the robot's tilt angle using a complementary filter.
+    6. Implement a PID controller in C++.
+    7. Control motor direction and power using a dual H-bridge driver.
+    8. Determine the correct sensor axes and motor polarity.
+    9. Tune the controller to reduce the robot's inclination and oscillation.
+    10. Evaluate the robot using repeatable experimental tests.
+    11. Identify the system's limitations and propose future improvements.
 1.5 Project Scope
 The project focuses on balancing the robot in one main plane: forward and backward.
 The reference implementation includes:
