@@ -440,3 +440,18 @@ Before applying power, check all screws, electrical connections, wheel clearance
    The robot's behaviour depends on more than its code.
 For example, a loose sensor can produce inconsistent measurements. A flexible chassis can introduce vibration. Unequal wheels can cause the robot to drift. Excessively heavy components can exceed the motor's available torque.
 Mechanical improvements should therefore be considered part of the control-system development.
+
+
+
+CHAPTER 7: ELECTRICAL CONNECTIONS AND WIRING
+
+ 7.1 MPU6050 Connections
+
+For a typical Arduino Uno reference setup:
+
+| MPU6050 Pin | Arduino Uno Pin |
+|---|---|
+| VCC | 5V only if the breakout board supports it; otherwise use the specified supply voltage |
+| GND | GND |
+| SDA | A4 |
+| SCL | A5 |
