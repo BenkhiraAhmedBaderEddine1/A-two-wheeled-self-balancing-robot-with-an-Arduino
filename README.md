@@ -471,3 +471,26 @@ The following table defines the pin assignments used in the reference code.
 | D10 | IN4 | Right motor direction control |
 | GND | GND | Common ground |
 | Suitable external motor supply | Motor power terminal (+12V / VS, as supported by the module) | Supplies motor power |
+
+
+The left and right motor outputs must be connected to the corresponding driver output terminals.
+On many L298N modules, jumpers are fitted to the enable pins. If PWM speed control is required through D5 and D6, the relevant enable jumpers usually need to be removed. Confirm this against the actual module.
+7.3 Power Connections
+The motor supply must be selected according to the motor voltage, expected current, and driver specifications.
+The Arduino and motor driver must share a common ground for their control signals to work reliably.
+However, the logic power arrangement depends on the specific driver board. Follow the board's documentation rather than assuming that every terminal or jumper has the same function.
+Do not connect the motor supply directly to the Arduino's 5 V pin.
+7.4 Importance of Correct Motor Polarity
+The motor directions are essential for balancing.
+If the robot leans forward, the wheels must move in the direction that catches the falling body. If they move in the opposite direction, the feedback becomes destabilizing.
+Each motor's physical forward direction depends on how its two wires are connected to the driver.
+If a motor runs in reverse relative to the desired direction, its polarity can be reversed in software or by swapping its motor leads with the power disconnected.
+The control direction must be verified experimentally before attempting a free-standing balance test.
+
+CHAPTER 8: MATHEMATICAL MODEL OF THE ROBOT
+8.1 Introduction
+Mathematical modelling helps explain why the robot falls and how corrective motor movement can restore balance.
+The two-wheeled robot can be approximated as an inverted pendulum mounted on a movable wheel axle.
+A complete dynamic model would include the mass and inertia of the body, wheel radius, motor torque, gear ratio, friction, and electrical characteristics. The reference program does not calculate all these quantities explicitly; it uses measured feedback to control the angle.
+8.2 Main Variables
+The following variables are useful for understanding the system:
