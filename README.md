@@ -47,9 +47,15 @@ TABLE OF CONTENTS
   35. References
   36. Appendices
 
+
+
 CHAPTER 1: GENERAL INTRODUCTION
+
+
 1.1 Introduction
-Robotics is an important branch of modern engineering that combines mechanical systems, electronic circuits, sensors, actuators, control theory, and computer programming to create machines capable of performing useful tasks.
+
+
+  Robotics is an important branch of modern engineering that combines mechanical systems, electronic circuits, sensors, actuators, control theory, and computer programming to create machines capable of performing useful tasks.
 Robots are used in manufacturing, healthcare, transportation, education, agriculture, logistics, and many other fields. As robotic systems become more advanced, there is increasing interest in machines that can move efficiently while maintaining stability.
 A self-balancing robot is an example of a dynamically controlled robotic system. It uses sensors and a feedback controller to maintain its body in an upright position despite disturbances.
 The two-wheeled self-balancing robot is particularly interesting because its mechanical structure resembles an inverted pendulum. Its centre of mass is located above the axle, and the robot cannot remain upright without continuous correction.
@@ -57,8 +63,12 @@ The robot therefore needs to measure its inclination, calculate the required cor
 In this project, an Arduino microcontroller performs the main control operations. An MPU6050 sensor provides acceleration and angular velocity measurements, while two DC motors produce the corrective movement.
 A PID controller is used to calculate the motor command from the difference between the desired angle and the measured angle.
 The project is a practical demonstration of how mathematical models and control algorithms can be implemented in a real embedded system.
+
+
 1.2 Problem Statement
-A two-wheeled robot has a fundamental stability problem: its narrow support line does not provide passive balance.
+
+
+  A two-wheeled robot has a fundamental stability problem: its narrow support line does not provide passive balance.
 If the robot tilts forward, gravity creates a rotational tendency that causes it to fall. If the robot tilts backward, the same problem occurs in the opposite direction.
 A manually controlled robot cannot reliably correct these movements quickly enough. The system therefore requires automatic feedback.
 The main engineering problem is:
