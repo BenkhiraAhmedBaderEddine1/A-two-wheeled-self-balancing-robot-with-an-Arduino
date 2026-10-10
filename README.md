@@ -279,3 +279,11 @@ However, its processing power and memory are limited compared with more advanced
 The accelerometer measures acceleration along the X, Y, and Z axes. When the robot is stationary, gravity provides a reference for estimating its inclination.
 The gyroscope measures angular velocity around the three axes. It responds quickly to rotational motion and helps the controller track rapid changes in orientation.
 The two sensors have complementary strengths and weaknesses.
+
+
+
+| Sensor        | Main advantage                                        | Main limitation                                          |
+|---------------|-------------------------------------------------------|----------------------------------------------------------|
+| Accelerometer | Provides a gravity-based inclination reference        | Sensitive to vibration and linear acceleration           |
+| Gyroscope     | Responds quickly to rotational movement               | Integrated measurements drift because of bias            |
+| Combined IMU  | Provides information for a more useful angle estimate | Requires correct orientation, filtering, and calibration |
