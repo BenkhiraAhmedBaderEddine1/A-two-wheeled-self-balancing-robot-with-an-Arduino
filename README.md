@@ -171,15 +171,17 @@ Conceptual diagram: the body tilts by an angle θ while the wheels move to resto
 
 
 2.3 Feedback Control
-Feedback control means that a system measures its actual state and uses the measurement to determine its next action.
+
+
+   Feedback control means that a system measures its actual state and uses the measurement to determine its next action.
 In this project, the feedback loop operates as follows:
-1. The sensor measures the robot's motion.
-2. The Arduino estimates the tilt angle.
-3. The controller calculates the difference between the target and measured angles.
-4. The PID algorithm calculates a correction.
-5. The motor driver applies the correction to the motors.
-6. The wheels move, changing the robot's position and angle.
-7. The sensor measures the new condition, and the process repeats.
+      1. The sensor measures the robot's motion.
+      2. The Arduino estimates the tilt angle.
+      3. The controller calculates the difference between the target and measured angles.
+      4. The PID algorithm calculates a correction.
+      5. The motor driver applies the correction to the motors.
+      6. The wheels move, changing the robot's position and angle.
+      7. The sensor measures the new condition, and the process repeats.
 This process occurs many times per second.
 2.4 Open-Loop and Closed-Loop Control
 An open-loop controller sends motor commands without measuring whether the robot is balanced. Such a system cannot reliably compensate for unexpected disturbances.
