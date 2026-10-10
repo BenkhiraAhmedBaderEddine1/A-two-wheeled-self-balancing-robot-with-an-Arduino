@@ -122,7 +122,6 @@ The reference implementation includes:
     - Basic fallen-robot protection.
     - Serial debugging and calibration.
 
-  
 The basic implementation does not include automatic navigation, obstacle avoidance, or a complete wheel-position controller. These can be added in later versions.
 
 
@@ -136,3 +135,35 @@ Second, it demonstrates closed-loop control. Rather than sending a fixed motor c
 Third, it introduces sensor fusion, a technique used in drones, mobile robots, and many navigation systems.
 Fourth, it provides practical experience with C++ programming, electrical wiring, PWM motor control, and experimental debugging.
 Finally, the robot provides a foundation for more advanced robotics projects involving autonomous movement, wireless communication, and intelligent control.
+
+
+CHAPTER 2: BACKGROUND AND RELATED CONCEPTS
+ 
+ 
+ 
+  2.1 What Is a Self-Balancing Robot?
+  
+  A self-balancing robot is a robotic system that automatically maintains its balance by controlling its movement in response to changes in its body orientation.
+A two-wheeled self-balancing robot has two wheels positioned on the same axle. Unlike a conventional wheeled robot, it cannot remain upright while stationary unless its control system continuously compensates for disturbances.
+The robot moves its wheels beneath its centre of mass to reduce the inclination of its body.
+
+
+  2.2 The Inverted Pendulum
+  
+  The fundamental physical model of the robot is the inverted pendulum.
+An ordinary pendulum hangs below its pivot and returns naturally toward its lowest position after a small disturbance. An inverted pendulum has its mass above its pivot and is unstable without active control.
+For the robot:
+
+
+  - The body represents the pendulum.
+  - The wheel axle acts as the pivot.
+  - The wheels provide corrective motion.
+  - The motors generate the torque needed to move the wheels.
+  - The controller determines how the robot should react.
+
+
+Simplified physical model
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/78eb45064f3a3249232c3215cf17343dfc2532ca/Sch%C3%A9ma%20technique%20d%E2%80%99un%20robot%20%C3%A0%20deux%20roues.png)
+
+Conceptual diagram: the body tilts by an angle θ while the wheels move to restore the upright position. This is a simplified model, not a mechanical drawing of the photographed chassis.
