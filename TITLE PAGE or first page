@@ -1,0 +1,13 @@
+Project Title: Two-Wheeled Self-Balanced Robot with Arduino
+
+Field of Study: Electrical Engineering, Electronics, Robotics, and Embedded Systems
+
+Main Controller: Arduino Uno
+
+Programming Language: C++ using the Arduino framework
+
+Control Technique: Proportional–Integral–Derivative (PID) Control
+
+Motion Sensor: MPU6050 Accelerometer and Gyroscope
+
+Motor Driver: L298N Dual H-Bridge (reference configuration)
