@@ -106,17 +106,21 @@ The project addresses these challenges through sensor fusion, PID control, and s
     9. Tune the controller to reduce the robot's inclination and oscillation.
     10. Evaluate the robot using repeatable experimental tests.
     11. Identify the system's limitations and propose future improvements.
+
+
 1.5 Project Scope
+
 The project focuses on balancing the robot in one main plane: forward and backward.
+
 The reference implementation includes:
-- Tilt sensing.
-- Gyroscope-based angular-rate measurement.
-- Complementary filtering.
-- PID control.
-- Two DC motor outputs.
-- Pulse-width modulation (PWM).
-- Basic fallen-robot protection.
-- Serial debugging and calibration.
+    - Tilt sensing.
+    - Gyroscope-based angular-rate measurement.
+    - Complementary filtering.
+    - PID control.
+    - Two DC motor outputs.
+    - Pulse-width modulation (PWM).
+    - Basic fallen-robot protection.
+    - Serial debugging and calibration.
 
   
 The basic implementation does not include automatic navigation, obstacle avoidance, or a complete wheel-position controller. These can be added in later versions.
