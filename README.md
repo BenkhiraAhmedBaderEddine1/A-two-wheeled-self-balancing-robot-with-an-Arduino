@@ -1,3 +1,6 @@
+TWO-WHEELED SELF-BALANCED ROBOT WITH ARDUINO    
+
+
 ABSTRACT
 
   The Two-Wheeled Self-Balanced Robot with Arduino is a small mobile robotic system designed to maintain its upright position using real-time feedback control. Unlike a conventional four-wheeled robot, which is naturally stable on a flat surface, a two-wheeled robot is dynamically unstable and must continuously adjust its wheel motion to prevent falling.
