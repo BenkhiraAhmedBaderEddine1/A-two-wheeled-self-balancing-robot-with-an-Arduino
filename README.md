@@ -5,7 +5,8 @@ TWO-WHEELED SELF-BALANCED ROBOT WITH ARDUINO
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/354edce1c81626b03f01c1e5464b5f6d2d65f731/photo_2026-10-10_20-07-09.jpg)
 
 
-![image alt]([https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/78eb45064f3a3249232c3215cf17343dfc2532ca/Sch%C3%A9ma%20technique%20d%E2%80%99un%20robot%20%C3%A0%20deux%20roues.png](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/354edce1c81626b03f01c1e5464b5f6d2d65f731/photo_2026-10-10_20-06-58.jpg))
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/4be9c890e0d06a799f6e3fac5e0ee70fd9792f87/photo_2026-10-10_20-06-58.jpg)
 
 
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/354edce1c81626b03f01c1e5464b5f6d2d65f731/photo_2026-10-10_20-06-54.jpg)
