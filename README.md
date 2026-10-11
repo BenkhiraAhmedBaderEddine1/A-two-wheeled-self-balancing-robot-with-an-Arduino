@@ -815,3 +815,35 @@ These are starting values, not validated settings for the pictured robot.
 
 The appropriate values depend on the chassis, motors, battery, sensor orientation, and the way the controller's output is scaled.
 
+
+## 11.7 PID Tuning Procedure
+
+**Step 1: Verify the sensor.**
+
+Tilt the robot by hand and inspect the reported angle.
+
+**Step 2: Verify motor direction.**
+
+Lift the wheels off the ground and confirm that the wheels respond in the corrective direction when the body tilts. Keep hands and objects clear of moving parts.
+
+**Step 3: Start with $K_i = 0$.**
+
+Begin with proportional and derivative (PD) control.
+
+**Step 4: Increase $K_p$ gradually.**
+
+Increase the proportional gain until the robot responds strongly enough to correct a small tilt. If it oscillates violently, reduce the gain.
+
+**Step 5: Adjust $K_d$.**
+
+Increase the derivative gain gradually to reduce oscillations. Excessive derivative gain may produce noisy or twitchy motor behaviour.
+
+**Step 6: Introduce integral action only if necessary.**
+
+If a persistent bias remains after the PD controller has been tuned, add a small integral gain and monitor the response carefully.
+
+**Step 7: Record every test.**
+
+Record the gains, battery condition, observed behaviour, and whether the robot balances.
+
+Never change all three gains randomly at the same time. Adjust one parameter at a time so that the effect of each change can be understood.
