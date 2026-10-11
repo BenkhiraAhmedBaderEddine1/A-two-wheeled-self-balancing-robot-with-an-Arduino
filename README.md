@@ -690,3 +690,14 @@ where:
 For the reference program, $\alpha = 0.95$ is a starting value.
 
 This means that the filter gives more weight to the short-term gyroscope estimate while still using the accelerometer to correct long-term drift.
+
+
+10.2 Advantages of the Complementary Filter
+- It is computationally inexpensive.
+- It is suitable for small microcontrollers.
+- It combines fast motion response with a gravity-based reference.
+- It is relatively straightforward to implement and debug.
+10.3 Limitations
+The filter does not eliminate all measurement errors.
+Its performance depends on sensor orientation, noise, vibration, and the selected coefficient. If the accelerometer angle is calculated using the wrong axes, filtering will not correct the underlying problem.
+A more advanced estimator, such as a Kalman filter, may be considered in a later version if the project requires improved estimation performance.
