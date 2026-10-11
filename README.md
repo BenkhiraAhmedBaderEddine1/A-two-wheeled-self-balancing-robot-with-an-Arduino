@@ -671,3 +671,22 @@ CHAPTER 10: COMPLEMENTARY FILTER
    A complementary filter combines two measurements with different characteristics to obtain a more useful estimate.
 For this robot, the filter combines the integrated gyroscope angle and the accelerometer-derived angle.
 The discrete-time equation is:
+
+The complementary filter combines the gyroscope and accelerometer measurements to estimate the robot's tilt angle:
+
+$$
+\theta_k = \alpha(\theta_{k-1} + \omega_k \Delta t) + (1-\alpha)\theta_{\mathrm{acc},k}
+$$
+
+where:
+
+- $\theta_k$ is the filtered angle.
+- $\theta_{k-1}$ is the previous filtered angle.
+- $\omega_k$ is the angular rate in radians per second (rad/s), or degrees per second if the angle calculation uses degrees consistently.
+- $\Delta t$ is the sample interval in seconds.
+- $\alpha$ is the filter coefficient.
+- $\theta_{\mathrm{acc},k}$ is the accelerometer angle.
+
+For the reference program, $\alpha = 0.95$ is a starting value.
+
+This means that the filter gives more weight to the short-term gyroscope estimate while still using the accelerometer to correct long-term drift.
