@@ -711,3 +711,51 @@ For the robot, the main error is the difference between the target upright angle
 The controller calculates a corrective output and sends it to the motors.
 11.2 Proportional Term
 The proportional term is:
+
+## 11.2 Proportional Term (P)
+
+The proportional term is:
+
+$$
+P(t) = K_p e(t)
+$$
+
+It responds to the current angle error.
+
+A larger error produces a larger proportional correction, subject to the output limits.
+
+If $K_p$ is too low, the motors may not correct the tilt strongly enough.
+
+If $K_p$ is too high, the robot may oscillate, overshoot, or produce sudden motor movements.
+
+## 11.3 Integral Term (I)
+
+The integral term is:
+
+$$
+I(t) = K_i \int_0^t e(\tau)\,d\tau
+$$
+
+It accumulates the error over time.
+
+Integral action can reduce persistent bias, such as a small steady-state error caused by asymmetry or other disturbances.
+
+However, excessive integral action may accumulate while the motor output is saturated. This is known as **integral windup** and can cause large overshoots.
+
+For this reason, the reference code limits the accumulated integral term.
+
+Many self-balancing robots are initially tuned using PD control, with $K_i = 0$, before integral action is introduced.
+
+## 11.4 Derivative Term (D)
+
+The derivative term is:
+
+$$
+D(t) = K_d \frac{de(t)}{dt}
+$$
+
+It responds to the rate at which the error changes.
+
+Derivative action helps damp oscillations by responding to rapid changes in the error.
+
+However, the derivative term can amplify sensor noise. The angle estimator and sensor filtering therefore matter when choosing $K_d$.
