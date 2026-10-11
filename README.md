@@ -795,3 +795,23 @@ u_k = K_p e_k + K_i I_k + K_d D_k
 $$
 
 The result is constrained to a permitted PWM range to prevent the controller from requesting motor outputs beyond the allowed limits.
+
+
+
+## 11.6 Choosing the Initial PID Values
+
+The program uses these example values:
+
+| Parameter | Initial Example |
+|---|---:|
+| $K_p$ | 18.0 |
+| $K_i$ | 0.0 |
+| $K_d$ | 0.75 |
+| Nominal loop frequency | 200 Hz |
+| Maximum initial PWM | 200 out of 255 |
+| Fallen-angle threshold | 35 degrees |
+
+These are starting values, not validated settings for the pictured robot.
+
+The appropriate values depend on the chassis, motors, battery, sensor orientation, and the way the controller's output is scaled.
+
