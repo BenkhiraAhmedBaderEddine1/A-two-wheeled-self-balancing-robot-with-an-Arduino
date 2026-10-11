@@ -701,3 +701,13 @@ This means that the filter gives more weight to the short-term gyroscope estimat
 The filter does not eliminate all measurement errors.
 Its performance depends on sensor orientation, noise, vibration, and the selected coefficient. If the accelerometer angle is calculated using the wrong axes, filtering will not correct the underlying problem.
 A more advanced estimator, such as a Kalman filter, may be considered in a later version if the project requires improved estimation performance.
+
+
+CHAPTER 11: PID CONTROL THEORY
+11.1 What Is PID?
+PID stands for Proportional, Integral, and Derivative.
+It is a widely used feedback-control method that calculates a control output from the error between a desired state and the measured state.
+For the robot, the main error is the difference between the target upright angle and the estimated tilt angle.
+The controller calculates a corrective output and sends it to the motors.
+11.2 Proportional Term
+The proportional term is:
