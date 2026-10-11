@@ -662,3 +662,12 @@ Before balancing tests, confirm:
 6. The readings are not dominated by vibration or loose connections.
 
 Incorrect axis selection is one of the most important causes of failed self-balancing attempts.
+
+
+CHAPTER 10: COMPLEMENTARY FILTER
+
+10.1 Definition
+
+   A complementary filter combines two measurements with different characteristics to obtain a more useful estimate.
+For this robot, the filter combines the integrated gyroscope angle and the accelerometer-derived angle.
+The discrete-time equation is:
