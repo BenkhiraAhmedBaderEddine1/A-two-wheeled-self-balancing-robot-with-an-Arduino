@@ -759,3 +759,33 @@ It responds to the rate at which the error changes.
 Derivative action helps damp oscillations by responding to rapid changes in the error.
 
 However, the derivative term can amplify sensor noise. The angle estimator and sensor filtering therefore matter when choosing $K_d$.
+
+## 11.5 Complete PID Equation
+
+The continuous-time PID equation is:
+
+$$
+u(t) = K_p e(t) + K_i \int_0^t e(\tau)\,d\tau + K_d \frac{de(t)}{dt}
+$$
+
+The digital implementation uses discrete measurements and an estimate of the elapsed time.
+
+In the reference code, the integral term is updated as follows:
+
+$$
+I_k = I_{k-1} + e_k \Delta t
+$$
+
+The derivative term is calculated as:
+
+$$
+D_k = \frac{e_k - e_{k-1}}{\Delta t}
+$$
+
+The controller output is then:
+
+$$
+u_k = K_p e_k + K_i I_k + K_d D_k
+$$
+
+The result is constrained to a permitted PWM range to prevent the controller from requesting motor outputs beyond the allowed limits.
