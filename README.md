@@ -1054,3 +1054,20 @@ Objective: Determine whether the power supply affects balancing.
 Record battery voltage before and after the tests.
 Observe whether the robot's response changes as the battery discharges.
 If motor output becomes weak or inconsistent, check the battery condition, wiring, motor-driver losses, and current capacity.
+
+16.8 Test Results Table
+Complete the following table with actual measurements from your robot.
+
+| Test | Parameter | Actual Result |
+|---|---|---|
+| IMU Test | Sensor detected | __________ |
+| IMU Test | Angle direction correct | __________ |
+| Motor Test | Left motor direction verified | __________ |
+| Motor Test | Right motor direction verified | __________ |
+| PID Test | Final `Kp` | __________ |
+| PID Test | Final `Ki` | __________ |
+| PID Test | Final `Kd` | __________ |
+| Balance Test | Longest balancing time | __________ seconds |
+| Repeatability | Successful trials out of five | __________ / 5 |
+| Power Test | Initial battery voltage | __________ volts |
+| Power Test | Final battery voltage | __________ volts |
