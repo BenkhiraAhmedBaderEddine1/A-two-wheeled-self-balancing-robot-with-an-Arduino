@@ -847,3 +847,31 @@ If a persistent bias remains after the PD controller has been tuned, add a small
 Record the gains, battery condition, observed behaviour, and whether the robot balances.
 
 Never change all three gains randomly at the same time. Adjust one parameter at a time so that the effect of each change can be understood.
+
+
+CHAPTER 12: SYSTEM ALGORITHM AND FLOWCHART
+12.1 Control Algorithm
+The robot follows a repeated control algorithm.
+1. Start the Arduino.
+2. Initialize the serial interface and I²C communication.
+3. Initialize the MPU6050 sensor.
+4. Configure the motor-driver pins.
+5. Read the initial sensor measurements.
+6. Wait until the next control-loop interval.
+7. Read acceleration and angular velocity.
+8. Calculate the accelerometer angle.
+9. Update the complementary filter.
+10. Calculate the angle error.
+11. Check whether the robot has exceeded the safe tilt threshold.
+12. If it has fallen too far, stop the motors and reset the integral term.
+13. Otherwise, calculate the proportional, integral, and derivative terms.
+14. Combine the terms into the PID output.
+15. Limit the output to the permitted motor command.
+16. Drive both motors in the appropriate direction.
+17. Print diagnostic information periodically.
+18. Repeat the control loop.
+
+
+12.2 Flowchart
+
+    
