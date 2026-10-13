@@ -880,3 +880,177 @@ The robot follows a repeated control algorithm.
 
 
 https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/db758341db401ce87531407c80972933324c0887/Pseudocode
+
+
+
+
+
+CHAPTER 13: COMPLETE ARDUINO C++ PROGRAM
+
+13.1 Purpose of the Program
+
+The following program is a complete reference implementation for a self-balancing robot using:
+- Arduino Uno.
+- MPU6050 IMU.
+- L298N motor driver.
+- Two geared DC motors.
+- Complementary angle filtering.
+- PID control.
+- PWM motor commands.
+- A fallen-angle safety stop.
+- Serial diagnostics.
+It is intended as a starting point for the hardware configuration described in this report. Sensor-axis selection and motor direction must be verified on the actual robot before free-standing operation.
+13.2 Full Source Code
+Create a new sketch in Arduino IDE and use the following code.
+
+https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/fdbc8dcdadfec16db83f10d50b0284296ec2d95e/Arduino_Code.ino
+
+13.3 Important Technical Notes About This Code
+The code above provides the complete reference control loop, but there are several details that must be handled correctly.
+First: sensor-axis calibration. The accelerometer formula and gyroscope axis must represent the same physical rotation. The example uses accelerometer Y/Z and gyroscope X. If the sensor is rotated on your chassis, you must change both consistently.
+Second: motor polarity. The left and right motor polarities may not be identical because the motors can be mounted facing opposite directions. Test them with the wheels raised.
+Third: upright reference. The value targetAngle = 0.0 is only an initial setting. The correct upright reference must be determined for the actual sensor mounting and chassis.
+Fourth: control-loop timing. The code targets a 5 ms interval, but sensor communication and program execution affect the actual sampling rate. The loop timing should be measured during testing.
+Fifth: safety stop. The fallen-angle threshold stops the motors after excessive tilt. It is not a substitute for an emergency power switch. A falling robot can reach the threshold quickly, and the robot may still be unstable before it falls.
+Sixth: hardware compatibility. The code uses the Adafruit MPU6050 library. It is not intended to run unchanged with an entirely different IMU, motor driver, or pin arrangement.
+Seventh: actual balancing performance. A program compiling successfully does not prove that the robot will balance. Correct signs, motor torque, mechanical alignment, power supply, and PID tuning are essential.
+
+CHAPTER 14: EXPLANATION OF THE PROGRAM
+
+14.1 Library Inclusion
+
+
+
+----------------------------------
+#include <Wire.h>                |
+#include <Adafruit_MPU6050.h>    |
+#include <Adafruit_Sensor.h>     |
+#include <math.h>                |
+----------------------------------
+
+
+Wire.h enables I²C communication. The Adafruit libraries provide the interface to the MPU6050. The mathematical library supplies functions such as atan2() and fabs().
+14.2 Sensor Initialization
+
+
+Adafruit_MPU6050 mpu;  
+
+This creates the object used to communicate with the sensor.
+The initialiseMPU() function checks whether the sensor is detected and configures the accelerometer range, gyroscope range, and sensor bandwidth.
+If the sensor is not detected, the program stops the motors and reports an error.
+14.3 Motor Control
+The setOneMotor() function determines the direction of one motor using its two H-bridge input pins. The PWM pin controls the effective motor power.
+The driveMotors() function applies a common signed command to both motors.
+This simple arrangement is appropriate for an initial reference implementation, but it does not compensate for differences between the two motors. Wheel encoders and separate motor commands can improve control in a more advanced version.
+14.4 Sensor Reading
+The function mpu.getEvent() reads the current sensor measurements.
+The accelerometer values are used to calculate a gravity-based angle estimate. The gyroscope provides angular velocity for the complementary filter.
+14.5 Angle Estimation
+The filter first predicts the new angle using the gyroscope, then combines this prediction with the accelerometer angle.
+The resulting estimate is used as the feedback variable in the PID controller.
+14.6 PID Calculation
+The program calculates:
+- P: proportional correction.
+- I: integral correction.
+- D: derivative correction.
+These terms are added together to form the control output.
+The output is then constrained to the selected PWM range.
+14.7 Safety Logic
+If the estimated angle exceeds the fallen-angle threshold, the program stops the motors and clears the accumulated integral error.
+This prevents the controller from continuing to apply balancing commands while the robot is far from its intended operating range.
+14.8 Serial Diagnostics
+The Serial Monitor displays:
+- Estimated angle.
+- Angle error.
+- Proportional contribution.
+- Integral contribution.
+- Derivative contribution.
+- Combined PID output.
+- Motor command.
+These measurements are valuable when tuning the controller and diagnosing instability.
+
+
+CHAPTER 15: IMPLEMENTATION AND CALIBRATION PROCEDURE
+15.1 Stage One: Hardware Inspection
+Before uploading the program, inspect the chassis, motor mounting, wheel alignment, sensor mounting, and wiring.
+Confirm that the motor supply matches the motors and driver.
+Check that the logic supply is appropriate for the Arduino and IMU.
+15.2 Stage Two: Install the Software
+Install Arduino IDE and the required libraries.
+Select the correct Arduino board and serial port. Compile the program and correct any library or configuration errors before testing the motors.
+15.3 Stage Three: Verify the IMU
+Power the controller and open the Serial Monitor at 115200 baud.
+Tilt the chassis forward and backward by hand.
+Verify that the reported angle changes smoothly and in the expected direction.
+If the angle is reversed or does not respond as expected, correct the sensor-axis selection and sign conventions.
+15.4 Stage Four: Verify Motor Direction
+Raise the robot so that the wheels cannot propel it across the floor.
+Apply small motor commands in a controlled test.
+Verify the physical direction of each motor and confirm that the two wheels can move in the direction required to catch a forward or backward tilt.
+If a correction makes the tilt worse, stop testing immediately. Check the sensor sign, gyro axis, and motor polarity before continuing.
+15.5 Stage Five: Tune the Controller
+Begin with integral gain set to zero.
+Adjust proportional gain gradually, followed by derivative gain.
+Avoid aggressive testing. Use a hand support or suitable stand and an accessible power switch during early trials.
+Only introduce a small integral gain if a persistent error remains after the PD response is satisfactory.
+15.6 Stage Six: Floor Testing
+Once the sensor readings and motor directions are verified, place the robot on a level surface.
+Use a clear test area, keep hands and cables away from the wheels, and be ready to disconnect motor power.
+Record each test rather than relying on memory.
+15.7 Stage Seven: Document the Final Configuration
+Record the final hardware models, pin assignments, sensor orientation, target angle, PID gains, battery specification, and test conditions.
+This information is necessary for reproducing the results and defending the project during an academic presentation.
+
+CHAPTER 16: TESTING AND EXPERIMENTAL EVALUATION
+16.1 Purpose of Testing
+Testing determines whether the assembled robot operates as intended and identifies problems in the sensor, controller, motor driver, power supply, or mechanical structure.
+The tests should progress from simple component checks to controlled balancing experiments.
+16.2 Test One: Sensor Functionality
+Objective: Confirm that the MPU6050 provides usable measurements.
+Procedure:
+1. Power the Arduino and IMU.
+2. Open the Serial Monitor.
+3. Tilt the robot slowly forward and backward.
+4. Observe the estimated angle.
+5. Repeat the test several times.
+Expected observation: The reported angle changes consistently with the robot's physical tilt.
+Record: Sensor detection, angle direction, angle variation, and any noise or unexpected jumps.
+16.3 Test Two: Motor Functionality
+Objective: Confirm that both motors operate correctly.
+Procedure:
+1. Raise the robot so the wheels cannot touch the floor.
+2. Apply small motor commands.
+3. Verify the left motor's direction.
+4. Verify the right motor's direction.
+5. Check that the wheels rotate without obstruction.
+Expected observation: Both motors respond to the commands, and their directions are understood.
+16.4 Test Three: Controller Response
+Objective: Determine whether the PID controller responds to small changes in angle.
+Procedure:
+1. Keep the robot supported.
+2. Tilt it slightly.
+3. Observe the measured angle and PID output.
+4. Observe whether the motor command changes in response.
+5. Check that the correction acts against the tilt.
+Expected observation: The motor command changes when the angle error changes.
+A changing motor command alone does not prove that the control direction is correct. The direction must also be verified physically.
+16.5 Test Four: Balancing Performance
+Objective: Evaluate whether the robot can maintain its upright position.
+Procedure:
+1. Place the robot on a level surface.
+2. Ensure the motor direction and safety settings have been verified.
+3. Start from a small, controlled tilt.
+4. Observe the robot's response.
+5. Record the time before it falls, if it falls.
+6. Repeat under the same conditions.
+Expected observation: A properly configured robot should move its wheels to reduce small tilts. With suitable tuning and adequate hardware, it may remain upright for a measurable period.
+The actual outcome must be observed and recorded. Do not claim successful balancing if the robot has not been tested.
+16.6 Test Five: Repeatability
+Objective: Determine whether the robot behaves consistently over repeated trials.
+Repeat the balancing test at least five times under similar conditions.
+Record the number of successful trials, balancing duration, PID settings, and any unusual behaviour.
+16.7 Test Six: Battery Performance
+Objective: Determine whether the power supply affects balancing.
+Record battery voltage before and after the tests.
+Observe whether the robot's response changes as the battery discharges.
+If motor output becomes weak or inconsistent, check the battery condition, wiring, motor-driver losses, and current capacity.
