@@ -1304,3 +1304,64 @@ CHAPTER 25: PROJECT MANAGEMENT AND WORK PLAN
 | Phase 9 | Analysis and documentation | Final report |
 | Phase 10 | Presentation preparation | Demonstration and oral defence |
 A structured work plan helps organize the project and reduces the likelihood of discovering major problems late in development.
+
+CHAPTER 26: CONCLUSION
+The Two-Wheeled Self-Balanced Robot with Arduino is an educational robotics project that demonstrates the integration of mechanical design, electronic hardware, embedded programming, sensor fusion, and feedback control.
+The robot's principal challenge is its inherent instability. Its body must remain near an upright position while the wheels move to compensate for changes in inclination.
+The Arduino provides the computational platform for reading sensor measurements and calculating motor commands. The MPU6050 provides acceleration and angular velocity measurements, and the complementary filter combines them to estimate the robot's tilt.
+The PID controller calculates a corrective signal based on the difference between the desired upright angle and the estimated actual angle. The motor driver applies the resulting commands to the two geared DC motors.
+The project also demonstrates the importance of practical engineering considerations. A correct control algorithm alone is insufficient if the sensor axes are incorrectly configured, the motor directions are reversed, the battery cannot supply enough current, or the mechanical structure is unsuitable.
+The reference C++ implementation provides a starting point for an Arduino Uno, MPU6050, and L298N configuration. It includes sensor initialization, angle estimation, PID calculations, PWM motor control, basic fallen-angle protection, and diagnostic output.
+The final performance must be established through physical testing. Actual balancing duration, repeatability, and controller settings should be documented rather than assumed.
+Future improvements, particularly wheel encoders, improved motor drivers, battery monitoring, wireless telemetry, and additional safety features, can increase the robot's functionality and reliability.
+In conclusion, the project provides a practical demonstration of feedback control and offers a foundation for further study in robotics, automation, and embedded control engineering.
+
+
+# APPENDIX A: GLOSSARY OF TECHNICAL TERMS
+
+| Term | Definition |
+|---|---|
+| Arduino | An electronics development platform commonly used for embedded systems and robotics. |
+| Microcontroller | An integrated circuit that executes a program and controls connected hardware. |
+| C++ | A programming language used to implement the robot's control logic. |
+| IMU | Inertial Measurement Unit; a sensor system that measures acceleration and angular velocity. |
+| Accelerometer | A sensor that measures acceleration along specified axes. |
+| Gyroscope | A sensor that measures angular velocity. |
+| I²C | A serial communication interface used by the Arduino to communicate with the IMU. |
+| PWM | Pulse-Width Modulation; a technique used to regulate effective motor power. |
+| H-bridge | An electronic circuit that allows a motor to be driven in either direction. |
+| PID | Proportional–Integral–Derivative control. |
+| Feedback | Information about a system's measured condition that is used to adjust its control input. |
+| Setpoint | The desired value that the controller attempts to maintain. |
+| Error | The difference between the desired value and the measured value. |
+| Sensor Fusion | Combining information from multiple sensors to improve an estimate. |
+| Complementary Filter | A filter that combines measurements with different frequency characteristics. |
+| Inverted Pendulum | A system with its centre of mass above a pivot, requiring active control to remain upright. |
+| Stability | The ability of a system to remain near its desired state or recover after a disturbance. |
+| Oscillation | Repeated movement above and below a desired state. |
+| Overshoot | The amount by which a response passes beyond its desired target. |
+| Integral Windup | Excessive accumulation of the integral term when a controller cannot produce its requested output. |
+| Calibration | Adjusting a system's reference values and settings to match the actual hardware. |
+| Stall Current | The current drawn by a motor when its shaft is prevented from rotating under specified electrical conditions. |
+| Dead Zone | A range of input values in which a motor does not respond sufficiently to overcome friction and other effects. |
+
+# APPENDIX B: ABBREVIATIONS
+
+| Abbreviation | Full Form |
+|---|---|
+| IMU | Inertial Measurement Unit |
+| PID | Proportional–Integral–Derivative |
+| PWM | Pulse-Width Modulation |
+| DC | Direct Current |
+| IDE | Integrated Development Environment |
+| I²C | Inter-Integrated Circuit |
+| ADC | Analog-to-Digital Converter |
+| MCU | Microcontroller Unit |
+| RPM | Revolutions Per Minute |
+| P | Proportional |
+| I | Integral |
+| D | Derivative |
+| GND | Ground |
+| SDA | Serial Data |
+| SCL | Serial Clock |
+| VCC | Positive Supply Connection |
