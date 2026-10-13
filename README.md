@@ -876,3 +876,7 @@ The robot follows a repeated control algorithm.
 
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/2e44d9df00284bb487ec69f9cbc20239e057194e/Flowchart)
 
+12.3 Pseudocode
+
+
+https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/db758341db401ce87531407c80972933324c0887/Pseudocode
