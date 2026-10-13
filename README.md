@@ -437,6 +437,11 @@ CHAPTER 4: HARDWARE COMPONENTS
    4.1 Arduino Uno
 
 
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/c14c0a863b3bd91935c40e30589a7893c86015ff/images11.jpg)
+
+
+ 
   The Arduino Uno is the main processing unit in the reference design.
 It is based on the ATmega328P microcontroller and provides digital input/output pins, PWM outputs, analog inputs, serial communication, and I²C communication.
 Its responsibilities are to:
@@ -451,6 +456,13 @@ Its responsibilities are to:
 However, its processing power and memory are limited compared with more advanced controllers. The control loop should be kept efficient.
 
 4.2 MPU6050 Accelerometer and Gyroscope
+
+
+
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/7d70586e3c0389e7512e721e801a016a90714ba7/images33.jpg)
+
+
 
    The MPU6050 is a six-axis inertial measurement unit containing a three-axis accelerometer and a three-axis gyroscope.
 The accelerometer measures acceleration along the X, Y, and Z axes. When the robot is stationary, gravity provides a reference for estimating its inclination.
@@ -473,6 +485,12 @@ The actual sensor breakout board's supply requirements must be checked before ap
 
 4.3 DC Geared Motors
 
+
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/2d9a96f28858b2417e8972fce1b618dafa005518/images2.jpg)
+
+
+
 Two geared DC motors drive the wheels.
 A gear reduction system increases the available output torque and reduces the rotational speed, which is useful for a balancing robot.
 The motors should have enough torque to accelerate the wheels and correct the body's inclination.
@@ -488,12 +506,19 @@ The motor driver's current rating must be suitable for the motor stall current. 
 
 4.4 Wheels
 
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/9ce966c45cc9e43334033809ac0eeb31addc0d63/61l34Y2QmoL._SX522_.jpg)
+
+
+ 
   The wheels convert motor rotation into movement of the robot.
 The wheel diameter affects the distance travelled for a given motor rotation and influences the dynamics of the system.
 Both wheels should have similar diameters, grip, and alignment.
 Loose wheels, unequal tyres, or a bent axle can make balancing significantly more difficult.
 
 4.5 L298N Motor Driver
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/1be4a740a3650e352fbd935749e11ca879e14cd0/image44.jpg)
+
     
   The L298N is a dual H-bridge motor driver capable of controlling the direction of two brushed DC motors.
 The Arduino cannot directly supply the current required by most geared DC motors. The driver provides the necessary motor-current switching.
@@ -506,6 +531,10 @@ The module must be wired according to its actual terminal labels and board desig
 An important limitation is that the L298N has a relatively high voltage drop and can dissipate considerable heat. A modern MOSFET-based driver may be a better choice when motor current and efficiency are important.
 
 4.6 Battery and Power Supply
+
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/d012b395dac82a66d5488c4061ff94bc3a759c12/55.jpg)
+
 
 The battery provides energy for the motors and electronics.
 The supply voltage must be appropriate for the motor ratings and driver requirements.
