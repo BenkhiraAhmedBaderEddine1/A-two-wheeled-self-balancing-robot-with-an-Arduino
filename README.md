@@ -1071,3 +1071,199 @@ Complete the following table with actual measurements from your robot.
 | Repeatability | Successful trials out of five | __________ / 5 |
 | Power Test | Initial battery voltage | __________ volts |
 | Power Test | Final battery voltage | __________ volts |
+
+
+16.9 Performance Indicators
+The project can be evaluated using several quantitative indicators.
+Balancing duration: The time for which the robot remains within a defined safe angular range.
+Maximum angular deviation: The largest absolute angle reached during a trial.
+Settling time: The time required for the robot's angle to return to a specified range after a small disturbance.
+Repeatability: The proportion of trials that meet the defined success criterion.
+Control activity: The frequency and magnitude of changes in the motor command.
+Power behaviour: Battery voltage changes and any resets or interruptions during operation.
+A clear definition of the success criterion should be established before collecting data. For example, the project may define a successful trial as maintaining the robot within a specified angle range for a specified duration. The limits should be selected to match the hardware and experimental objectives.
+
+CHAPTER 17: RESULTS AND DISCUSSION
+17.1 Expected Results
+The expected result of this project is a two-wheeled robot that uses sensor feedback to correct deviations from its upright position.
+When the body tilts, the IMU detects the movement. The Arduino estimates the angle and calculates the PID output. The motor driver then applies the corresponding corrective command to the wheels.
+If the system has been assembled correctly and the controller is appropriately tuned, the robot should respond to small tilts by moving the wheels in a direction that helps restore balance.
+However, the quality of the response depends on the physical robot and its calibration.
+17.2 Interpretation of Successful Operation
+A successful balancing trial would demonstrate that:
+- The sensor provides useful measurements.
+- The angle-estimation algorithm works adequately.
+- The feedback direction is correct.
+- The motors have sufficient torque.
+- The PID controller produces an appropriate response.
+- The power system supports the required motor current.
+- The mechanical structure is suitable for the control task.
+A stable trial is evidence that these subsystems work together under the tested conditions.
+17.3 Interpretation of Unsuccessful Operation
+If the robot falls immediately, the problem may be related to incorrect sensor axes, incorrect motor polarity, insufficient torque, inappropriate PID gains, or poor mechanical balance.
+If the robot oscillates repeatedly, the controller may be too aggressive, the derivative response may be insufficient, or the sensor may be noisy.
+If the robot balances briefly but then drifts, wheel-position feedback, motor mismatch, sensor bias, or battery changes may be contributing factors.
+A structured troubleshooting process is more useful than changing multiple settings at random.
+17.4 Scientific Reporting of Results
+The photographs show the robot's assembly process, but they do not establish its final balancing performance.
+Therefore, the report does not assign an invented balancing duration, success rate, or measured angle error.
+After completing the tests, insert the measured values and explain how the PID settings affected the response.
+A suitable results paragraph should describe what actually happened, identify the final settings, and discuss any remaining limitations.
+
+CHAPTER 18: ADVANTAGES OF THE PROJECT
+18.1 Educational Advantages
+The project integrates several important engineering disciplines into one system.
+Students gain experience in:
+- Microcontroller programming.
+- C++ programming.
+- Electronic circuit connections.
+- Motor-driver operation.
+- IMU sensor measurements.
+- Sensor fusion.
+- PID control.
+- Real-time systems.
+- Mechanical assembly.
+- Experimental testing.
+18.2 Technical Advantages
+Closed-loop control: The robot reacts to its measured condition instead of relying on fixed motor commands.
+Compact mechanical design: Two wheels and a small chassis provide a compact platform for experimentation.
+Accessible development tools: Arduino and the associated software libraries are widely used in educational robotics.
+Expandable architecture: Additional sensors, encoders, wireless modules, and control algorithms can be added.
+Practical demonstration: The system makes an abstract concept—feedback control—visible through physical motion.
+18.3 Research Advantages
+The robot can be used to compare different controller settings and angle-estimation techniques.
+It provides a platform for investigating response time, oscillations, disturbances, battery performance, and the effects of mechanical changes.
+
+CHAPTER 19: DISADVANTAGES AND LIMITATIONS
+19.1 Inherent Instability
+The robot is dynamically unstable. It requires continuous feedback and can fall if the control loop stops or becomes incorrect.
+19.2 Sensitivity to PID Parameters
+A controller that is poorly tuned may oscillate, respond too slowly, or drive the robot further from balance.
+The same PID parameters will not necessarily work on two robots with different masses, wheels, motors, or batteries.
+19.3 Sensor Errors
+Accelerometer measurements are affected by vibration and linear acceleration.
+Gyroscope measurements may drift because of bias.
+Incorrect axis selection or inconsistent signs can make the angle estimate unsuitable for control.
+19.4 Power Consumption
+The motors may draw considerable current when correcting disturbances. This can shorten battery life and cause supply-voltage drops.
+19.5 Motor Mismatch
+Two nominally identical motors may have different speeds, friction, or torque.
+A controller that sends the same command to both motors may not produce perfectly symmetrical movement.
+19.6 Limited Position Control
+The reference program primarily controls body angle. It does not use wheel encoders to maintain a fixed position.
+As a result, the robot may remain approximately upright while gradually rolling away from its starting position.
+19.7 Mechanical Sensitivity
+Loose mounting points, wheel misalignment, a flexible chassis, or a shifting battery can negatively affect performance.
+19.8 Limited Fault Protection
+The reference code includes a fallen-angle stop but does not implement a full emergency-stop circuit, battery management system, motor-current protection system, or independent safety controller.
+These features should be considered for a more robust design.
+
+CHAPTER 20: SAFETY CONSIDERATIONS
+
+
+Safety is an important part of the project's design and testing.
+1. Disconnect the power before changing wiring.
+2. Confirm the battery voltage and polarity before connecting it.
+3. Never connect the motors directly to Arduino GPIO pins.
+4. Use a motor driver rated for the motors' expected current.
+5. Secure the battery and electronic modules.
+6. Keep fingers, hair, clothing, and loose wires away from rotating wheels.
+7. Lift the wheels before the first motor-direction tests.
+8. Use an accessible switch to disconnect motor power.
+9. Do not leave the powered robot unattended.
+10. Stop testing if the driver becomes excessively hot, the battery swells, wiring overheats, or the controller resets repeatedly.
+11. Avoid short circuits and exposed conductive connections.
+12. Perform initial tests on a clear surface away from stairs, people, and fragile objects.
+The software safety stop is useful, but it must not be treated as a replacement for safe electrical design and an accessible means of removing power.
+
+# CHAPTER 21: COMMON PROBLEMS AND TROUBLESHOOTING
+
+| Problem | Possible Cause | Recommended Action |
+|---|---|---|
+| MPU6050 is not detected | Incorrect wiring or power supply | Check SDA, SCL, VCC, GND, and the module documentation. |
+| Angle readings are reversed | Incorrect sensor-axis convention | Correct the accelerometer formula and gyroscope axis/sign. |
+| Motors do not move | Incorrect driver wiring or missing motor power | Verify the motor supply, enable pins, driver inputs, and common ground. |
+| Robot falls faster when correcting | Incorrect feedback sign or motor polarity | Stop testing and verify sensor signs and motor directions. |
+| Robot oscillates rapidly | Excessive proportional gain or inadequate damping | Reduce `Kp` gradually and tune `Kd` carefully. |
+| Robot responds too slowly | Insufficient control response or motor torque | Check PID gains, motor capability, power supply, and control-loop timing. |
+| Motors only vibrate | Insufficient supply current, mechanical binding, or unsuitable PWM | Check the battery, motor driver, wiring, and wheel freedom. |
+| Arduino repeatedly resets | Supply-voltage drop or electrical interference | Separate motor and logic power appropriately and improve grounding. |
+| Robot slowly rolls away | No wheel-position feedback | Add wheel encoders and a suitable outer control loop. |
+| Motor driver overheats | Excessive current or power dissipation | Check motor stall current and consider a more efficient motor driver. |
+| Angle readings are noisy | Vibration or loose IMU mounting | Secure the sensor and inspect filtering and mechanical mounting. |
+| Balancing performance changes as the battery discharges | Changing motor voltage and available torque | Monitor battery voltage and evaluate the power system. |
+
+
+
+21.1 Recommended Troubleshooting Order
+Use this order to isolate problems efficiently:
+1. Check power and wiring.
+2. Verify that the IMU is detected.
+3. Verify the angle measurement and sensor axes.
+4. Verify both motor directions with the wheels raised.
+5. Verify that the control response opposes the tilt.
+6. Tune proportional gain.
+7. Tune derivative gain.
+8. Introduce integral gain only if required.
+9. Investigate mechanical and power limitations.
+10. Repeat controlled tests and document the changes.
+
+CHAPTER 22: FUTURE IMPROVEMENTS
+22.1 Wheel Encoders
+Wheel encoders measure wheel rotation and allow the controller to estimate wheel speed and displacement.
+They can help the robot control its position and reduce unwanted drift.
+An improved controller may use an inner balancing loop and an outer wheel-speed or position loop.
+22.2 Bluetooth Control
+A Bluetooth module can allow a user to send movement commands from a phone.
+Possible commands include:
+- Move forward.
+- Move backward.
+- Turn left.
+- Turn right.
+- Stop.
+- Adjust speed.
+- Change operating mode.
+The balancing loop should continue to operate locally on the controller, even when no remote movement command is being received.
+22.3 Wi-Fi and Telemetry
+A Wi-Fi-enabled microcontroller can transmit sensor measurements, estimated angle, PID output, battery voltage, and motor commands to a computer or dashboard.
+This would make tuning and performance evaluation easier.
+22.4 Battery Monitoring
+A voltage-monitoring circuit can detect a low battery condition and reduce the risk of unstable operation caused by insufficient motor power.
+Battery monitoring should be designed for the battery chemistry and voltage range being used.
+22.5 Better Motor Driver
+Replacing the L298N with an appropriate modern MOSFET-based driver can reduce voltage losses and improve efficiency, provided that the replacement is correctly rated for the motor current and supply voltage.
+22.6 Improved State Estimation
+A Kalman filter or another suitable estimator may improve angle estimation under certain operating conditions.
+However, the benefits should be demonstrated experimentally rather than assumed. A correctly configured complementary filter may be sufficient for a basic educational robot.
+22.7 Obstacle Detection
+An ultrasonic or time-of-flight distance sensor could allow the robot to detect obstacles.
+Obstacle avoidance should be added only after the balancing controller operates reliably.
+22.8 Autonomous Navigation
+With suitable wheel encoders, wireless communication, and additional sensors, the robot could be extended to perform movement commands or simple navigation tasks.
+22.9 Better Safety System
+Future versions could include:
+- A physical emergency-stop switch.
+- A fuse.
+- Battery-voltage monitoring.
+- Motor-current monitoring.
+- A watchdog.
+- Improved cable management.
+- A protective enclosure for the electronics.
+22.10 Advanced Control Methods
+The robot can also be used to compare PID control with other approaches, such as state-space control, linear-quadratic regulation, or model-based control.
+These approaches generally require additional modelling and validation. PID remains a reasonable starting point because it is accessible and comparatively straightforward to implement.
+
+CHAPTER 23: APPLICATIONS
+Self-balancing robots and related control systems have several potential applications.
+Educational robotics: They demonstrate embedded control, sensor fusion, and system dynamics.
+Control engineering laboratories: They provide a practical platform for studying unstable systems.
+Research and prototyping: They can be used to compare controllers and sensor-estimation techniques.
+Mobile robotic platforms: Two-wheeled balancing mechanisms can be used in experimental transportation and service-robot concepts.
+Embedded systems training: They demonstrate the integration of sensors, actuators, communication interfaces, and real-time software.
+Autonomous robotics development: They provide a base for adding navigation, wireless control, and other capabilities.
+These are general application areas; they do not mean that the specific educational prototype is ready for commercial or human-carrying use.
+
+CHAPTER 24: PROJECT COST AND BUDGET CONSIDERATIONS
+The total cost depends on the components already available, the motor specifications, and the quality of the power system.
+Because the exact component models and purchase prices are unknown, a reliable total cost cannot be stated for your particular robot.
+Use the following table to calculate your actual project budget.
