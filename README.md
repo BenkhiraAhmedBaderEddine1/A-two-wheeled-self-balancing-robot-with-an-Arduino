@@ -1267,3 +1267,40 @@ CHAPTER 24: PROJECT COST AND BUDGET CONSIDERATIONS
 The total cost depends on the components already available, the motor specifications, and the quality of the power system.
 Because the exact component models and purchase prices are unknown, a reliable total cost cannot be stated for your particular robot.
 Use the following table to calculate your actual project budget.
+
+## Bill of Materials (BOM)
+
+| Component | Quantity | Unit Price | Total |
+|---|---:|---:|---:|
+| Arduino Uno or compatible board | 1 | ______ | ______ |
+| MPU6050 module | 1 | ______ | ______ |
+| Dual H-bridge motor driver | 1 | ______ | ______ |
+| Geared DC motors | 2 | ______ | ______ |
+| Wheels | 2 | ______ | ______ |
+| Chassis and motor brackets | 1 set | ______ | ______ |
+| Battery and holder | 1 set | ______ | ______ |
+| Switch, fuse, and wiring | 1 set | ______ | ______ |
+| Fasteners and mounting materials | 1 set | ______ | ______ |
+| Optional encoders or wireless module | As needed | ______ | ______ |
+| **Total Project Cost** | | | **______** |
+
+The cost can be reduced by reusing suitable components, but the motor driver and battery should not be selected solely on the basis of the lowest price. Current capacity, reliability, and electrical compatibility are important.
+
+CHAPTER 25: PROJECT MANAGEMENT AND WORK PLAN
+
+
+## Project Implementation Plan
+
+| Phase | Main Activities | Deliverable |
+|---|---|---|
+| Phase 1 | Research and component selection | Project design |
+| Phase 2 | Mechanical assembly | Completed chassis |
+| Phase 3 | Wiring and power checks | Verified electrical system |
+| Phase 4 | IMU integration | Verified angle measurements |
+| Phase 5 | Motor-driver testing | Verified motor directions |
+| Phase 6 | PID implementation | Working control program |
+| Phase 7 | Calibration and tuning | Selected controller settings |
+| Phase 8 | Experimental testing | Recorded results |
+| Phase 9 | Analysis and documentation | Final report |
+| Phase 10 | Presentation preparation | Demonstration and oral defence |
+A structured work plan helps organize the project and reduces the likelihood of discovering major problems late in development.
