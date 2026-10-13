@@ -922,10 +922,10 @@ CHAPTER 14: EXPLANATION OF THE PROGRAM
 
 
 ----------------------------------
-#include <Wire.h>                |
-#include <Adafruit_MPU6050.h>    |
-#include <Adafruit_Sensor.h>     |
-#include <math.h>                |
+#include <Wire.h>                
+#include <Adafruit_MPU6050.h>    
+#include <Adafruit_Sensor.h>     
+#include <math.h>                
 ----------------------------------
 
 
