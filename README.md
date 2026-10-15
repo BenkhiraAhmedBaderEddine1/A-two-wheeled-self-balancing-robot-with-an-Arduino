@@ -1154,7 +1154,8 @@ The robot follows a repeated control algorithm.
 
 
 12.2 Flowchart
-
+ 
+    ```mermaid
 %%{init: {
   "theme": "base",
   "themeVariables": {
@@ -1178,7 +1179,7 @@ The robot follows a repeated control algorithm.
 
 flowchart TD
 
-  A(["◈ START ROBOT ◈"]):::start
+   A(["◈ START ROBOT ◈"]):::start
 
   B["⚙ INITIALIZE SYSTEM<br/>Arduino · I²C · IMU · Motors"]:::process
 
@@ -1211,6 +1212,7 @@ flowchart TD
   E -- "YES · UNSAFE" --> I
     I --> J
 
+
   classDef start fill:#0D9488,stroke:#5EEAD4,color:#FFFFFF,stroke-width:3px;
     classDef process fill:#102A43,stroke:#2DD4BF,color:#E6FFFB,stroke-width:2px;
     classDef sensor fill:#123047,stroke:#38BDF8,color:#E0F2FE,stroke-width:2px;
@@ -1218,7 +1220,7 @@ flowchart TD
     classDef decision fill:#33230D,stroke:#FBBF24,color:#FEF3C7,stroke-width:3px;
     classDef pid fill:#12372F,stroke:#34D399,color:#D1FAE5,stroke-width:2px;
     classDef motor fill:#103B36,stroke:#5EEAD4
-
+    ```
     
 
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/2e44d9df00284bb487ec69f9cbc20239e057194e/Flowchart)
