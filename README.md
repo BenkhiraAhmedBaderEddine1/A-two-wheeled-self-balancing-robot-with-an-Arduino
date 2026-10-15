@@ -1187,7 +1187,6 @@ flowchart TD
     linkStyle default stroke:#5EEAD4,stroke-width:2px
 ```
 
-![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/2e44d9df00284bb487ec69f9cbc20239e057194e/Flowchart)
 
 12.3 Pseudocode
 
