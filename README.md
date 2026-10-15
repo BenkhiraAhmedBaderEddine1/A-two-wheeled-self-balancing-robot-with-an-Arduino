@@ -125,24 +125,17 @@ The robot uses sensor measurements to estimate its tilt and adjusts motor respon
 
 
 
-・・・・・・・・・・
-・・・・・・・・・・
-・・・・・・・・・・
+
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/4be9c890e0d06a799f6e3fac5e0ee70fd9792f87/photo_2026-10-10_20-06-58.jpg)
 
 
 
-・・・・・・・・・・
-・・・・・・・・・・
-・・・・・・・・・・
 
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/354edce1c81626b03f01c1e5464b5f6d2d65f731/photo_2026-10-10_20-06-54.jpg)
 
 
 
-・・・・・・・・・・
-・・・・・・・・・・
-・・・・・・・・・・
+
 
 
 ABSTRACT
