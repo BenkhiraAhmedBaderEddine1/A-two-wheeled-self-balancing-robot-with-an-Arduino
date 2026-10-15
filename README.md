@@ -1155,6 +1155,72 @@ The robot follows a repeated control algorithm.
 
 12.2 Flowchart
 
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "background": "#07111F",
+    "primaryColor": "#102A43",
+    "primaryTextColor": "#E6FFFB",
+    "primaryBorderColor": "#2DD4BF",
+    "lineColor": "#5EEAD4",
+    "secondaryColor": "#132238",
+    "tertiaryColor": "#0B1728",
+    "fontFamily": "JetBrains Mono, monospace"
+  },
+  "flowchart": {
+    "htmlLabels": true,
+    "curve": "basis",
+    "nodeSpacing": 35,
+    "rankSpacing": 45,
+    "padding": 18
+  }
+}}%%
+
+flowchart TD
+
+  A(["◈ START ROBOT ◈"]):::start
+
+  B["⚙ INITIALIZE SYSTEM<br/>Arduino · I²C · IMU · Motors"]:::process
+
+  C["⌁ READ IMU DATA<br/>Estimate tilt angle θ"]:::sensor
+
+  D["∑ CALCULATE ANGLE ERROR<br/>e = θ reference − θ measured"]:::math
+
+  E{"⚠ SAFETY CHECK<br/>Is tilt beyond threshold?"}:::decision
+
+  F["∿ COMPUTE PID OUTPUT<br/>Proportional · Integral · Derivative"]:::pid
+
+  G["⟲ COMMAND MOTOR DRIVER<br/>Adjust left and right wheel speed"]:::motor
+
+  H(["↻ REPEAT CONTROL LOOP"]):::loop
+
+  I["⛔ STOP MOTORS<br/>Reset PID integral term"]:::danger
+
+  J(["◆ SAFETY HOLD<br/>Check robot and sensor state"]):::safe
+
+  A --> B
+    B --> C
+    C --> D
+    D --> E
+
+  E -- "NO · SAFE" --> F
+    F --> G
+    G --> H
+    H --> C
+
+  E -- "YES · UNSAFE" --> I
+    I --> J
+
+  classDef start fill:#0D9488,stroke:#5EEAD4,color:#FFFFFF,stroke-width:3px;
+    classDef process fill:#102A43,stroke:#2DD4BF,color:#E6FFFB,stroke-width:2px;
+    classDef sensor fill:#123047,stroke:#38BDF8,color:#E0F2FE,stroke-width:2px;
+    classDef math fill:#172554,stroke:#818CF8,color:#EEF2FF,stroke-width:2px;
+    classDef decision fill:#33230D,stroke:#FBBF24,color:#FEF3C7,stroke-width:3px;
+    classDef pid fill:#12372F,stroke:#34D399,color:#D1FAE5,stroke-width:2px;
+    classDef motor fill:#103B36,stroke:#5EEAD4
+
+    
+
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/A-two-wheeled-self-balancing-robot-with-an-Arduino/blob/2e44d9df00284bb487ec69f9cbc20239e057194e/Flowchart)
 
 12.3 Pseudocode
