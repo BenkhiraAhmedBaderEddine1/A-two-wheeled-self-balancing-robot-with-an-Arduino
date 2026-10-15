@@ -1,29 +1,122 @@
-═══════════════════════════════════════════════════════════════
+<!-- ====================================================== -->
+<!--     TWO-WHEELED SELF-BALANCED ROBOT | ARCTIC EDITION   -->
+<!-- ====================================================== -->
 
+<p align="center">
+  <img
+    src="https://capsule-render.vercel.app/api?type=soft&height=280&color=0:07111F,35:102A43,70:0D9488,100:5EEAD4&text=SELF-BALANCING%20ROBOT&fontColor=F0FDFA&fontSize=37&fontAlignY=42&desc=ARDUINO%20%7C%20GYROSCOPIC%20STABILITY%20%7C%20MOTION%20CONTROL&descSize=13&descAlignY=62&animation=fadeIn"
+    width="100%"
+    alt="Two-Wheeled Self-Balanced Robot Banner"
+  />
+</p>
 
-    >⩊<  TWO-WHEELED SELF-BALANCED ROBOT WITH ARDUINO      >⩊<  
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=700&size=17&duration=2400&pause=800&color=5EEAD4&center=true&vCenter=true&width=850&height=80&lines=2+WHEELS.+1+ROBOT.+PERFECT+BALANCE.;REAL-TIME+MOTION+CONTROL;ARDUINO-POWERED+ROBOTICS;SENSE.+CALCULATE.+BALANCE.;STABILITY+IN+MOTION."
+    alt="Animated Robot Taglines"
+  />
+</p>
 
- 
-                    ꧁⎝ 𓆩༺✧༻𓆪 ⎠꧂
-                    
-═══════════════════════════════════════════════════════════════
+<p align="center">
+  <strong>
+    TWO-WHEELED SELF-BALANCED ROBOT
+    <br/>
+    BUILT WITH ARDUINO
+  </strong>
+</p>
 
-・・・・
+<p align="center">
+  <code> >⩊< </code>
+  &nbsp; ✦ &nbsp;
+  <code> STAY UPRIGHT </code>
+  &nbsp; ✦ &nbsp;
+  <code> >⩊< </code>
+</p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/PLATFORM-ARDUINO-5EEAD4?style=for-the-badge&labelColor=07111F" alt="Arduino Platform"/>
+  <img src="https://img.shields.io/badge/PROJECT-ROBOTICS-FFFFFF?style=for-the-badge&labelColor=102A43" alt="Robotics Project"/>
+  <img src="https://img.shields.io/badge/CONTROL-SELF--BALANCING-5EEAD4?style=for-the-badge&labelColor=07111F" alt="Self Balancing Control"/>
+</p>
 
-・・・・・・・・・・
+<p align="center">
+  <img src="https://img.shields.io/badge/SENSING-IMU%20%2F%20GYROSCOPE-99F6E4?style=flat-square&labelColor=102A43" alt="IMU and Gyroscope"/>
+  <img src="https://img.shields.io/badge/CONTROL-REAL--TIME-FFFFFF?style=flat-square&labelColor=102A43" alt="Real-Time Control"/>
+  <img src="https://img.shields.io/badge/MOTION-TWO--WHEEL-5EEAD4?style=flat-square&labelColor=102A43" alt="Two Wheel Motion"/>
+</p>
 
+---
 
-・・・・・・・・・・・・・・・
+<h2 align="center">◈ THE ART OF BALANCE ◈</h2>
 
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=500&size=15&duration=45&pause=900&color=99F6E4&center=true&vCenter=true&width=750&height=100&lines=%5B+SENSOR+%5D+--%3E+%5B+ANGLE+ESTIMATION+%5D;%5B+CONTROLLER+%5D+--%3E+%5B+MOTOR+RESPONSE+%5D;CONTINUOUS+FEEDBACK.+DYNAMIC+STABILITY.;KEEPING+TWO+WHEELS+UNDER+CONTROL."
+    alt="Robot Control System Animation"
+  />
+</p>
 
-・・・・・・・・・・・・・・・・・・・・
+<p align="center">
+  <strong>Small robot. Dynamic system. One constant challenge: balance.</strong>
+</p>
 
+---
 
-・・・・・・・・・・・・・・・・・・・・・・・・・
+## ✦ PROJECT OVERVIEW
 
+A two-wheeled self-balancing robot built around an Arduino-based control system. The project explores the principles of robotic balance, motion sensing, feedback control, and differential wheel movement.
 
-・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+The robot uses sensor measurements to estimate its tilt and adjusts motor responses to help maintain an upright position while enabling controlled movement.
+
+## ⌁ SYSTEM CONCEPT
+
+<p align="center">
+  <code>IMU / SENSOR</code>
+  <br/>
+  ⬇
+  <br/>
+  <code>ANGLE ESTIMATION</code>
+  <br/>
+  ⬇
+  <br/>
+  <code>CONTROL ALGORITHM</code>
+  <br/>
+  ⬇
+  <br/>
+  <code>MOTOR DRIVER</code>
+  <br/>
+  ⬇
+  <br/>
+  <code>LEFT + RIGHT WHEELS</code>
+  <br/>
+  ⤴
+  <br/>
+  <sub>Continuous feedback loop</sub>
+</p>
+
+## ⚙️ KEY OBJECTIVES
+
+- Explore real-time embedded control using Arduino.
+- Measure tilt and angular motion using suitable sensors.
+- Implement feedback-based balancing control.
+- Coordinate two motors to correct the robot's tilt.
+- Investigate stability, response time, and motion behavior.
+
+## ◈ DESIGN PHILOSOPHY
+
+<p align="center">
+  <strong>FEEL THE TILT.</strong>
+  <br/>
+  <strong>CALCULATE THE RESPONSE.</strong>
+  <br/>
+  <strong>KEEP THE BALANCE.</strong>
+</p>
+
+<p align="center">
+  <sub>ARDUINO ROBOTICS LAB · MOTION CONTROL · EMBEDDED SYSTEMS</sub>
+</p>
+
+---
 
 
 
