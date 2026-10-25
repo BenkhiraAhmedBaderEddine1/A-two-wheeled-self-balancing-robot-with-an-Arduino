@@ -1,23 +1,47 @@
-name: C/C++ CI
+
+name: Arduino Robot CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
-
+    name: Compile Arduino Robot
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Arduino CLI
+        uses: arduino/setup-arduino-cli@v2
+
+      - name: Update Arduino package index
+        run: arduino-cli core update-index
+
+      - name: Install Arduino Uno platform
+        run: arduino-cli core install arduino:avr
+
+      - name: Install MPU6050 dependencies
+        run: |
+          arduino-cli lib install "Adafruit MPU6050"
+          arduino-cli lib install "Adafruit Unified Sensor"
+          arduino-cli lib install "Adafruit BusIO"
+
+      - name: Prepare Arduino sketch
+        run: |
+          mkdir -p /tmp/Arduino_Code
+          cp Arduino_Code.ino /tmp/Arduino_Code/Arduino_Code.ino
+
+      - name: Compile for Arduino Uno
+        run: |
+          arduino-cli compile \
+            --fqbn arduino:avr:uno \
+            /tmp/Arduino_Code
