@@ -1758,6 +1758,7 @@ In conclusion, the project provides a practical demonstration of feedback contro
 
 # APPENDIX B: ABBREVIATIONS
 
+
 | Abbreviation | Full Form |
 |---|---|
 | IMU | Inertial Measurement Unit |
@@ -1776,3 +1777,7 @@ In conclusion, the project provides a practical demonstration of feedback contro
 | SDA | Serial Data |
 | SCL | Serial Clock |
 | VCC | Positive Supply Connection |
+
+
+⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹thank you so much for your reading ⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹
+
